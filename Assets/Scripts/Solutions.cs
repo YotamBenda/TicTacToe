@@ -7,7 +7,7 @@ public class Solutions : MonoBehaviour
 
 public Solutions()
     {
-        AllSolutions = new int[9,3];
+        AllSolutions = new int[8,3];
     }
     public int[,] AllSolutions { get; }
 

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Grid : MonoBehaviour
 {
     public int SlotNum { get; set; }
-    public int currImage { get; set; }
+    public int CurrImg { get; set; }
 
     private Button _button;
     private GameManager gameManager; // ctor? //event?
@@ -19,7 +19,7 @@ public class Grid : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
-        currImage = 2;
+        CurrImg = 2;
     }
     public void SetGameManager(GameManager gm)
     {
@@ -30,7 +30,7 @@ public class Grid : MonoBehaviour
     {
         _button.image.sprite = players.playerImage[players.playersTurn];
         _button.interactable = false;
-        currImage = players.playersTurn;
+        CurrImg = players.playersTurn;
         movesRecord.movesRecorder.Push(SlotNum);
         gameManager.NextTurn();
     }

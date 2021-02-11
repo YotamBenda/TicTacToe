@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
 
     private bool isCorrect;
 
-
-
     private void Start()
     {
         var slotNum = 0;
@@ -38,7 +36,8 @@ public class GameManager : MonoBehaviour
             if (CheckIfGameWon(turn))
             {
                 //end game
-                Debug.Log("game has ended!, the winner is player" + (turn+1));
+                Debug.Log("game has ended!, the winner is player" + (turn + 1));
+                return;
             }
         }
         if (turn == 0)
@@ -55,22 +54,26 @@ public class GameManager : MonoBehaviour
 
     public bool CheckIfGameWon(int lastTurn)
     {
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < 8; i++)
         {
+            //Debug.Log("******************************** I IS+ " + i);
             isCorrect = true;
             for (int j = 0; j < 3; j++)
             {
+                //Debug.Log("******************************** J IS + " + j);
                 var temp = solutions.AllSolutions[i, j];
-                if(gridMap[temp].currImage != lastTurn)
+                if(gridMap[temp].CurrImg != lastTurn)
                 {
+                    //Debug.Log("### i got out");
                     isCorrect = false;
+                    break;
                 }
             }
             if(isCorrect)
             {
+                Debug.Log("i left in the correct option");
                 return isCorrect;
             }
-
         }
         return isCorrect;
     }
