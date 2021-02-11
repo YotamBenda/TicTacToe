@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: a4d5eb5e8fde5ac4198dee55717225f8, type: 2}
+  movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}

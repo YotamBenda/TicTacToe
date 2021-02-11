@@ -5,25 +5,33 @@ using UnityEngine.UI;
 
 public class Grid : MonoBehaviour
 {
-    private Button _button;
-    [SerializeField] private Players players;
+    public int SlotNum { get; set; }
+    public int currImage { get; set; }
 
-    private GameManager gameManager;
+    private Button _button;
+    private GameManager gameManager; // ctor? //event?
+
+    [Header("Scriptable Objects")]
+    [SerializeField] private Players players;
+    [SerializeField] private MovesRecorder movesRecord;
+
 
     private void Awake()
     {
         _button = GetComponent<Button>();
+        currImage = 2;
     }
     public void SetGameManager(GameManager gm)
     {
         gameManager = gm;
-        Debug.Log("gm set");
     }
 
     public void SetGridImage()
     {
         _button.image.sprite = players.playerImage[players.playersTurn];
         _button.interactable = false;
+        currImage = players.playersTurn;
+        movesRecord.movesRecorder.Push(SlotNum);
         gameManager.NextTurn();
     }
 
