@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Solutions : MonoBehaviour
 {
+    private bool isCorrect;
 
-public Solutions()
+    public Solutions()
     {
         AllSolutions = new int[8,3];
     }
     public int[,] AllSolutions { get; }
 
     private void Awake()
+    {
+        InitSolutions();
+    }
+    private void InitSolutions()
     {
         AllSolutions[0, 0] = 0;
         AllSolutions[0, 1] = 1;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6572375224925440336}
   - component: {fileID: 6572375224925440339}
   - component: {fileID: 463002093}
+  - component: {fileID: 3135868075113825870}
   m_Layer: 5
   m_Name: GridTL
   m_TagString: Untagged
@@ -144,3 +145,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: a4d5eb5e8fde5ac4198dee55717225f8, type: 2}
   movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}
+  _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
+--- !u!114 &3135868075113825870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6572375224925440341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d756680f070a25e458137d17be795208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
+  EndGameEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 463002093}
+        m_MethodName: EndGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

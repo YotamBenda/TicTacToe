@@ -10,4 +10,16 @@ public class Players : ScriptableObject
 
     public Sprite[] playerImage;
     public int playersTurn = 0;
+
+    public void ChangeTurns()
+    {
+        if(playersTurn == 0)
+        {
+            playersTurn++;
+        }
+        else
+        {
+            playersTurn--;
+        }
+    }
 }
