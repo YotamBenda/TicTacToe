@@ -12,7 +12,7 @@ public class Grid : MonoBehaviour
     private GameManager gameManager; // ctor? //event?
 
     [Header("Scriptable Objects")]
-    [SerializeField] private Players players;
+    [SerializeField] private PlayersData _playersData;
     [SerializeField] private MovesRecorder movesRecord;
     [SerializeField] private GameEvent _gameEvent;
 
@@ -29,15 +29,15 @@ public class Grid : MonoBehaviour
 
     public void SetGridImage()
     {
-        _button.image.sprite = players.playerImage[players.playersTurn];
+        _button.image.sprite = _playersData.PlayerImage[_playersData.PlayersTurn];
         _button.interactable = false;
-        PlayersNum = players.playersTurn;
+        PlayersNum = _playersData.PlayersTurn;
         movesRecord.movesRecorder.Push(SlotNum);
         _gameEvent.FireEvent("NextTurn");
     }
     public void EndGame()
     {
-        _button.image.sprite = players.playerImage[2]; //resets to neutral
+        _button.image.sprite = _playersData.PlayerImage[2]; //resets to neutral
     }
 
     private void InitGameEvents()

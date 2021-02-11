@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [Header("Scripteable Objects")]
-    [SerializeField] private Players _players;
+    [SerializeField] private PlayersData _playersData;
     [SerializeField] private MovesRecorder _movesRecord;
     [SerializeField] private GameEvent _gameEvent;
 
@@ -25,14 +25,13 @@ public class GameManager : MonoBehaviour
 
     public void NextTurn()
     {
-        var turn = _players.playersTurn;
+        var turn = _playersData.PlayersTurn;
         if (_movesRecord.movesRecorder.Count > 4 && CheckIfGameWon(turn))
         {
             _gameEvent.FireEvent("EndGame");
             Debug.Log("game has ended!, the winner is player" + (turn + 1));
             return;
         }
-        _players.ChangeTurns();
    }
 
     public bool CheckIfGameWon(int lastTurn)
@@ -60,7 +59,7 @@ public class GameManager : MonoBehaviour
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();
-        _players.playersTurn = 0;
+        _playersData.PlayersTurn = 0;
     }
     
     private void InitGridsNum()

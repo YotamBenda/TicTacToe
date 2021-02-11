@@ -4,22 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-[CreateAssetMenu(menuName = "Variables/Players", order = 1)]
-public class Players : ScriptableObject
+public class Players : MonoBehaviour
 {
-
-    public Sprite[] playerImage;
-    public int playersTurn = 0;
-
-    public void ChangeTurns()
+    [SerializeField] private PlayersData _playersData;
+    public int CurrentPlayer { get; set; }
+    private int _currPlay = 1;
+    private void Awake()
     {
-        if(playersTurn == 0)
-        {
-            playersTurn++;
-        }
-        else
-        {
-            playersTurn--;
-        }
+        CurrentPlayer = _playersData.PlayersTurn;
+    }
+    public void ChangePlayer()
+    {
+        var check = _currPlay % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
+        _currPlay++;
+        _playersData.PlayersTurn = CurrentPlayer;
     }
 }

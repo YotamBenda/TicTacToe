@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad65dca4722990743a29e6aec52692cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 11400000, guid: a4d5eb5e8fde5ac4198dee55717225f8, type: 2}
+  _playersData: {fileID: 11400000, guid: 285cb5500ebe97a44a664212812d4095, type: 2}
   movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}
   _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
 --- !u!114 &3135868075113825870
@@ -173,3 +173,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  NextTurnEvent:
+    m_PersistentCalls:
+      m_Calls: []
