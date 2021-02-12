@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Solutions : MonoBehaviour
 {
-    private bool isCorrect;
-
     public Solutions()
     {
         AllSolutions = new int[8,3];
     }
+    
+    [Header("Scriptable Objects")]
+    [SerializeField] private GameEvent _gameEvent;
+    [SerializeField] private PlayersData _playerData;
     public int[,] AllSolutions { get; }
 
     private void Awake()
     {
-        InitSolutions();
+        InitSolutionsRaw();
     }
-    private void InitSolutions()
+    private void InitSolutionsRaw()
     {
         AllSolutions[0, 0] = 0;
         AllSolutions[0, 1] = 1;
@@ -49,5 +51,52 @@ public class Solutions : MonoBehaviour
         AllSolutions[7, 0] = 2;
         AllSolutions[7, 1] = 4;
         AllSolutions[7, 2] = 6;
+    }
+
+    public bool CheckIfGameWon(List<Grid> gridMap)
+    {
+        return (CheckRows(gridMap) || CheckColumns(gridMap));
+    }
+
+    private bool CheckRows(List<Grid> gridMap)
+    {
+        var isCorrect = false;
+        for (int i = 0; i < 9 && !isCorrect; i += 3)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                if (gridMap[i + j].PlayerID != gridMap[i + j + 1].PlayerID ||
+                   (gridMap[i + j].PlayerID == -1 || gridMap[i + j + 1].PlayerID == -1))
+                {
+                    isCorrect = false;
+                    break;
+                }
+                else
+                {
+                    isCorrect = true;
+                }
+            }
+        }
+        return isCorrect;
+    }
+    private bool CheckColumns(List<Grid> gridMap)
+    {
+        var isCorrect = false;
+        for (int i = 0; i < 2 && !isCorrect; i++)
+        {
+            for (int j = 0; j < 6; j+=3)
+            {
+                if (gridMap[i + j].PlayerID != gridMap[i + j + 3].PlayerID)
+                {
+                    isCorrect = false;
+                    break;
+                }
+                else
+                {
+                    isCorrect = true;
+                }
+            }
+        }
+        return isCorrect;
     }
 }

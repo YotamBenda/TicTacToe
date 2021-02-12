@@ -20,46 +20,24 @@ public class GameManager : MonoBehaviour
     {
         InitScriptableObjects();
         InitGridsNum();
-        InitGameEvents();
     }
 
     public void NextTurn()
     {
-        var turn = _playersData.PlayersTurn;
-        if (_movesRecord.movesRecorder.Count > 4 && CheckIfGameWon(turn))
+        var currTurn = _playersData.PlayerID;
+        if (_movesRecord.movesRecorder.Count > 4 && solutions.CheckIfGameWon(gridMap))
         {
             _gameEvent.FireEvent("EndGame");
-            Debug.Log("game has ended!, the winner is player" + (turn + 1));
+            InitScriptableObjects();
+            Debug.Log("game has ended!, the winner is player" + (currTurn + 1));
             return;
         }
    }
 
-    public bool CheckIfGameWon(int lastTurn)
-    {
-        for (int i = 0; i < 8; i++)
-        {
-            isCorrect = true;
-            for (int j = 0; j < 3; j++)
-            {
-                var temp = solutions.AllSolutions[i, j];
-                if(gridMap[temp].PlayersNum != lastTurn)
-                {
-                    isCorrect = false;
-                    break;
-                }
-            }
-            if(isCorrect)
-            {
-                break;
-            }
-        }
-        return isCorrect;
-    }
-
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();
-        _playersData.PlayersTurn = 0;
+        _playersData.PlayerID = 0;
     }
     
     private void InitGridsNum()
@@ -67,14 +45,9 @@ public class GameManager : MonoBehaviour
         var slotNum = 0;
         foreach (var grid in gridMap)
         {
-            grid/*.GetComponent<Grid>()*/.SetGameManager(this);
+            grid.SetGameManager(this);
             grid.SlotNum = slotNum;
             slotNum++;
         }
-    }
-
-    private void InitGameEvents()
-    {
-        _gameEvent.OnNextTurn += NextTurn;
     }
 }

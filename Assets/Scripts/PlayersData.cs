@@ -6,5 +6,5 @@ using UnityEngine;
 public class PlayersData : ScriptableObject
 {
     public Sprite[] PlayerImage;
-    public int PlayersTurn = 0;
+    public int PlayerID = 0;
 }

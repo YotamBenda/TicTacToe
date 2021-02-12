@@ -11,12 +11,16 @@ public class Players : MonoBehaviour
     private int _currPlay = 1;
     private void Awake()
     {
-        CurrentPlayer = _playersData.PlayersTurn;
+        CurrentPlayer = _playersData.PlayerID;
     }
     public void ChangePlayer()
     {
         var check = _currPlay % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
         _currPlay++;
-        _playersData.PlayersTurn = CurrentPlayer;
+        _playersData.PlayerID = CurrentPlayer;
+    }
+    public void EndGame()
+    {
+        _playersData.PlayerID = 0;
     }
 }

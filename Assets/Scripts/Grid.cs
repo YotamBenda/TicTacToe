@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Grid : MonoBehaviour
 {
     public int SlotNum { get; set; }
-    public int PlayersNum { get; set; }
+    public int PlayerID { get; set; }
 
     private Button _button;
     private GameManager gameManager; // ctor? //event?
@@ -20,7 +20,7 @@ public class Grid : MonoBehaviour
     private void Awake()
     {
         _button = GetComponent<Button>();
-        PlayersNum = -1;
+        PlayerID = -1;
     }
     public void SetGameManager(GameManager gm)
     {
@@ -29,15 +29,16 @@ public class Grid : MonoBehaviour
 
     public void SetGridImage()
     {
-        _button.image.sprite = _playersData.PlayerImage[_playersData.PlayersTurn];
+        _button.image.sprite = _playersData.PlayerImage[_playersData.PlayerID];
         _button.interactable = false;
-        PlayersNum = _playersData.PlayersTurn;
+        PlayerID = _playersData.PlayerID;
         movesRecord.movesRecorder.Push(SlotNum);
         _gameEvent.FireEvent("NextTurn");
     }
     public void EndGame()
     {
-        _button.image.sprite = _playersData.PlayerImage[2]; //resets to neutral
+        _button.image.sprite = _playersData.PlayerImage[2]; 
+        _button.interactable = true;
     }
 
     private void InitGameEvents()
