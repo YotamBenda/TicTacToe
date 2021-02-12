@@ -22,6 +22,7 @@ public class Grid : MonoBehaviour
         _button = GetComponent<Button>();
         PlayerID = -1;
     }
+
     public void SetGameManager(GameManager gm)
     {
         gameManager = gm;
@@ -35,17 +36,11 @@ public class Grid : MonoBehaviour
         movesRecord.movesRecorder.Push(SlotNum);
         _gameEvent.FireEvent("NextTurn");
     }
+
     public void EndGame()
     {
         _button.image.sprite = _playersData.PlayerImage[2]; 
         _button.interactable = true;
         PlayerID = -1;
     }
-
-    private void InitGameEvents()
-    {
-        _gameEvent.OnEndGame += EndGame;
-    }
-
-
 }

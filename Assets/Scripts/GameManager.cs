@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
             for (int j = 0; j < 3; j++)
             {
                 gridMap[i, j] = gridMapInit[slotNum];
+                gridMap[i, j].SlotNum = slotNum;
                 slotNum++;
             }
         }
