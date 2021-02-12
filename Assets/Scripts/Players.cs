@@ -22,5 +22,6 @@ public class Players : MonoBehaviour
     public void EndGame()
     {
         _playersData.PlayerID = 0;
+        //add UI that tells which player X/O
     }
 }

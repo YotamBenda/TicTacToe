@@ -35,7 +35,13 @@ public class GameManager : MonoBehaviour
             Debug.Log("game has ended!, the winner is player" + (currTurn + 1));
             return;
         }
-   }
+        if (_movesRecord.movesRecorder.Count == gridMapInit.Length)
+        {
+            _gameEvent.FireEvent("EndGame");
+            InitScriptableObjects();
+            Debug.Log("game has ended with a draw!");
+        }
+    }
 
     private void InitScriptableObjects()
     {
