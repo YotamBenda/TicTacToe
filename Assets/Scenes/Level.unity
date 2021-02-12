@@ -741,7 +741,7 @@ MonoBehaviour:
   _movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}
   _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
   solutions: {fileID: 245104057}
-  gridMap:
+  gridMapInit:
   - {fileID: 463002093}
   - {fileID: 6572375223341429192}
   - {fileID: 640730341}

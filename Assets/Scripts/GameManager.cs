@@ -12,9 +12,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Setup")]
     [SerializeField] private Solutions solutions;
-    [SerializeField] private List<Grid> gridMap = new List<Grid>();
-
-    private bool isCorrect;
+    [SerializeField] private Grid[] gridMapInit;
+    private Grid[,] gridMap;
+    public GameManager()
+    {
+        gridMap = new Grid[3,3];
+    }
 
     private void Awake()
     {
@@ -43,11 +46,13 @@ public class GameManager : MonoBehaviour
     private void InitGridsNum()
     {
         var slotNum = 0;
-        foreach (var grid in gridMap)
+        for (int i = 0; i < 3; i++)
         {
-            grid.SetGameManager(this);
-            grid.SlotNum = slotNum;
-            slotNum++;
+            for (int j = 0; j < 3; j++)
+            {
+                gridMap[i, j] = gridMapInit[slotNum];
+                slotNum++;
+            }
         }
     }
 }

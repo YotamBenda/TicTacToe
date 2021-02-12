@@ -53,20 +53,20 @@ public class Solutions : MonoBehaviour
         AllSolutions[7, 2] = 6;
     }
 
-    public bool CheckIfGameWon(List<Grid> gridMap)
+    public bool CheckIfGameWon(Grid[,] gridMap)
     {
         return (CheckRows(gridMap) || CheckColumns(gridMap));
     }
 
-    private bool CheckRows(List<Grid> gridMap)
+    private bool CheckRows(Grid[,] gridMap)
     {
         var isCorrect = false;
-        for (int i = 0; i < 9 && !isCorrect; i += 3)
+        for (int i = 0; i < 3 && !isCorrect; i ++)
         {
             for (int j = 0; j < 2; j++)
             {
-                if (gridMap[i + j].PlayerID != gridMap[i + j + 1].PlayerID ||
-                   (gridMap[i + j].PlayerID == -1 || gridMap[i + j + 1].PlayerID == -1))
+                if (gridMap[i, j].PlayerID != gridMap[i, j + 1].PlayerID ||
+                   (gridMap[i, j].PlayerID == -1 || gridMap[i, j + 1].PlayerID == -1))
                 {
                     isCorrect = false;
                     break;
@@ -79,14 +79,15 @@ public class Solutions : MonoBehaviour
         }
         return isCorrect;
     }
-    private bool CheckColumns(List<Grid> gridMap)
+    private bool CheckColumns(Grid[,] gridMap)
     {
         var isCorrect = false;
         for (int i = 0; i < 2 && !isCorrect; i++)
         {
-            for (int j = 0; j < 6; j+=3)
+            for (int j = 0; j < 2; j++)
             {
-                if (gridMap[i + j].PlayerID != gridMap[i + j + 3].PlayerID)
+                if (gridMap[i , j].PlayerID != gridMap[i , j + 1].PlayerID ||
+                   (gridMap[i, j].PlayerID == -1 || gridMap[i, j + 1].PlayerID == -1))
                 {
                     isCorrect = false;
                     break;

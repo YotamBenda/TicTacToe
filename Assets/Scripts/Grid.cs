@@ -39,6 +39,7 @@ public class Grid : MonoBehaviour
     {
         _button.image.sprite = _playersData.PlayerImage[2]; 
         _button.interactable = true;
+        PlayerID = -1;
     }
 
     private void InitGameEvents()
