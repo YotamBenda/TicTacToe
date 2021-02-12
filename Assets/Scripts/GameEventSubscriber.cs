@@ -8,6 +8,7 @@ public class GameEventSubscriber : MonoBehaviour
     public GameEvent gameEvent;
     public UnityEvent EndGameEvent;
     public UnityEvent NextTurnEvent;
+    public UnityEvent RestartGameEvent;
 
     public void OnEventFired(string eventName)
     {
@@ -22,6 +23,12 @@ public class GameEventSubscriber : MonoBehaviour
     private IEnumerator EndGame()
     {
         EndGameEvent?.Invoke();
+        yield return null;
+    }
+
+    private IEnumerator RestartGame()
+    {
+        RestartGameEvent?.Invoke();
         yield return null;
     }
 

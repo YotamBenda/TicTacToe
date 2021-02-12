@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
             Debug.Log("game has ended with a draw!");
+            return;
         }
+        CheckForHint();
     }
 
     private void InitScriptableObjects()
@@ -61,5 +63,21 @@ public class GameManager : MonoBehaviour
                 slotNum++;
             }
         }
+    }
+
+    public int CheckForHint()
+    {
+        var usableSlots = new List<int>();
+        int random;
+        for (int i = 0; i < gridMapInit.Length; i++)
+        {
+            if(gridMapInit[i].PlayerID == -1)
+            {
+                usableSlots.Add(i);
+            }
+        }
+        random = Random.Range(0, usableSlots.Count - 1);
+        Debug.Log(usableSlots[random]);
+        return usableSlots[random];
     }
 }
