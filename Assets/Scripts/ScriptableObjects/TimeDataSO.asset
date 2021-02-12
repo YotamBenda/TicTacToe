@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cabecf1674ab3b4d9560f5414e8e369, type: 3}
   m_Name: TimeDataSO
   m_EditorClassIdentifier: 
-  TimeForTurn: 5
+  TimeForTurn: 10
