@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             return;
         }
-        _gameEvent.FireEvent("SetCurrentPlayer");
     }
 
     public int CheckForHint(bool shouldShow)

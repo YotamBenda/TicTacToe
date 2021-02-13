@@ -60,6 +60,7 @@ public class Players : MonoBehaviour
     public void EndGame()
     {
         _playersData.PlayerID = 0;
+        _currPlay = 1;
         //add UI that tells which player X/O
     }
 }
