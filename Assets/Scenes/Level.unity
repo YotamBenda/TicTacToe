@@ -187,6 +187,9 @@ MonoBehaviour:
   OnContinueGame:
     m_PersistentCalls:
       m_Calls: []
+  stamevent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &60225024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1142,6 +1145,9 @@ MonoBehaviour:
   OnContinueGame:
     m_PersistentCalls:
       m_Calls: []
+  stamevent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &707497845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,6 +1885,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  stamevent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &869957234 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 463002093, guid: 5048442516211824faaaf7cb10a730b4,
@@ -3007,6 +3016,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnContinueGame:
+    m_PersistentCalls:
+      m_Calls: []
+  stamevent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1550279365

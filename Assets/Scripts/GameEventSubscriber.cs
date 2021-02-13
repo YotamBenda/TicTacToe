@@ -16,9 +16,12 @@ public class GameEventSubscriber : MonoBehaviour
     public UnityEvent OnPauseGame;
     public UnityEvent OnContinueGame;
 
+    public UnityEvent stamevent;
+    private UnityAction stamaction;
+
     private void Awake()
     {
-        
+        stamevent.AddListener(stamaction);
     }
     public void OnEventFired(string eventName)
     {
