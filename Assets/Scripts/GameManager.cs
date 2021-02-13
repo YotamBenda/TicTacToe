@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
         return usableSlots[random];
     }
 
+    public void UndoLastMoves()
+    {
+        _gridMapInit[_movesRecord.movesRecorder.Pop()].ResetGridSlot();
+    }
+
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();

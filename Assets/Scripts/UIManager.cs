@@ -9,7 +9,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
 
     [Header("UI Menus")]
-    [SerializeField] private GameObject _gameEndMenu; 
+    [SerializeField] private GameObject _gameEndMenu;
+    [SerializeField] private GameObject _gamePauseMenu;
 
     public void EndGame()
     {
@@ -20,5 +21,10 @@ public class UIManager : MonoBehaviour
         _gameEndMenu.SetActive(false);
         _gameEvent.FireEvent("AssignRandom");
         _gameEvent.FireEvent("RestartGame");
+    }
+
+    public void PauseGame()
+    {
+        _gamePauseMenu.SetActive(true);
     }
 }

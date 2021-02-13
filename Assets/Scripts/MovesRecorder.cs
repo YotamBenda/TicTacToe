@@ -7,4 +7,5 @@ using UnityEngine;
 public class MovesRecorder : ScriptableObject
 {
     public Stack<int> movesRecorder = new Stack<int>();
+
 }

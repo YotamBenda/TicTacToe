@@ -12,6 +12,8 @@ public class GameEventSubscriber : MonoBehaviour
     public UnityEvent OnSetCurrentPlayer;
     public UnityEvent OnRestartGame;
     public UnityEvent OnAssignRandom;
+    public UnityEvent OnUndoMoves;
+    public UnityEvent OnPauseGame;
 
     public void OnEventFired(string eventName)
     {
@@ -48,6 +50,17 @@ public class GameEventSubscriber : MonoBehaviour
         yield return null;
     }
 
+    private IEnumerator UndoMoves()
+    {
+        OnUndoMoves?.Invoke();
+        yield return null;
+    }
+
+    private IEnumerator PauseGame()
+    {
+        OnPauseGame?.Invoke();
+        yield return null;
+    }
 
     private void OnEnable()
     {
