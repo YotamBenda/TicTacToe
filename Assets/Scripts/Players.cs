@@ -61,7 +61,7 @@ public class Players : MonoBehaviour
     {
         if (_playerVsComputer)
         {
-            _playersData.ComputersTurn = true;/* (Random.value > 0.5f);*/
+            _playersData.ComputersTurn = (Random.value > 0.5f);
         }
     }
 
