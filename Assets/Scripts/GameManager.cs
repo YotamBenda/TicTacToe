@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Grid[] _gridMapInit;
 
     private int gameMode;
+    private bool _shouldSwitchPlayerComputer = false;
     private Grid[,] _gridMap;
 
     public GameManager()
@@ -26,40 +27,34 @@ public class GameManager : MonoBehaviour
     {
         InitScriptableObjects();
         InitGridsNum();
-        gameMode = CheckGameMode();
+        //CheckGameMode();
+    }
+    private void Start()
+    {
+        NextTurn();
     }
 
-    public void NextTurn()
+    public void NextTurn() 
     {
-        switch (gameMode)
-        {
-            case 0:
-                break;
-
-            case 1:
-                _playersData.ComputersTurn = !_playersData.ComputersTurn;
-                break;
-
-            case 2:
-                _playersData.ComputersTurn = true;
-                break;
-        }
-
         if (_playersData.ComputersTurn)
         {
             StartCoroutine("PlaceComputersTurn");
         }
-        else
-        {
-            CheckIfGameEnded();
-        }
+        CheckIfGameEnded();
     }
-    private IEnumerator PlaceComputersTurn() // used an Enumerator to give the computers turn delay before setting a move.
+
+    // used an Enumerator to give the computers turn delay before setting a move.
+    private IEnumerator PlaceComputersTurn() 
     {
         yield return new WaitForSeconds(_playersData.ComputersDelay);
         _gridMapInit[CheckForHint(false)].SetGridImage();
+        if (_shouldSwitchPlayerComputer)
+        {
+            _playersData.ComputersTurn = !_playersData.ComputersTurn;
+        }
         CheckIfGameEnded();
     }
+
     public void CheckIfGameEnded()
     {
         var currTurn = _playersData.PlayerID;
@@ -68,6 +63,8 @@ public class GameManager : MonoBehaviour
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
             Debug.Log("game has ended!, the winner is player" + (currTurn + 1));
+            Time.timeScale = 0;
+            Debug.Log("time scale is " + Time.timeScale);
             return;
         }
         if (_movesRecord.movesRecorder.Count == _gridMapInit.Length) // draw.
@@ -75,8 +72,10 @@ public class GameManager : MonoBehaviour
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
             Debug.Log("game has ended with a draw!");
+            Time.timeScale = 0;
             return;
         }
+        _gameEvent.FireEvent("SetCurrentPlayer");
     }
 
     public int CheckForHint(bool shouldShow)
@@ -97,20 +96,12 @@ public class GameManager : MonoBehaviour
         }
         return usableSlots[random];
     }
-    public int CheckGameMode()
+    
+    public void RestartGame()
     {
-        var gameModes = _playersData.GameModes;
-        var index = 0;
-        for (int i = 0; i < gameModes.Length; i++)
-        {
-            if (gameModes[i])
-            {
-                index = i;
-                break;
-            }
-        }
-        return index;
+        Time.timeScale = 1;
     }
+
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();
