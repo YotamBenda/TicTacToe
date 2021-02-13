@@ -16,4 +16,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e8278e012ff04d9a8bbd92350645568, type: 3}
   - {fileID: 21300000, guid: bd30ced15dd1c4a81a8798331e1abe4a, type: 3}
   - {fileID: 21300000, guid: d1529f9ebc201944ca5916ea8947b4ec, type: 3}
-  PlayersTurn: 0
+  PlayerID: 0
+  GameModes: 000100
+  ComputersTurn: 0
+  ComputersDelay: 2

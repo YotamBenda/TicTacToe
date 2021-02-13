@@ -414,7 +414,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &256195480 stripped
 MonoBehaviour:
@@ -723,7 +723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &682198056
 MonoBehaviour:
@@ -740,8 +740,8 @@ MonoBehaviour:
   _playersData: {fileID: 11400000, guid: 285cb5500ebe97a44a664212812d4095, type: 2}
   _movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}
   _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  solutions: {fileID: 245104057}
-  gridMapInit:
+  _solutions: {fileID: 245104057}
+  _gridMapInit:
   - {fileID: 463002093}
   - {fileID: 6572375223341429192}
   - {fileID: 640730341}
@@ -781,6 +781,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RestartGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &715247085 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 463002093, guid: 5048442516211824faaaf7cb10a730b4,
@@ -1075,7 +1078,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &841732419
 MonoBehaviour:
@@ -1118,6 +1121,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RestartGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &869957234 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 463002093, guid: 5048442516211824faaaf7cb10a730b4,
@@ -1884,6 +1890,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  RestartGameEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1550279365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1897,6 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playersData: {fileID: 11400000, guid: 285cb5500ebe97a44a664212812d4095, type: 2}
+  _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
 --- !u!4 &1550279366
 Transform:
   m_ObjectHideFlags: 0
@@ -1909,7 +1919,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1637513362
 PrefabInstance:

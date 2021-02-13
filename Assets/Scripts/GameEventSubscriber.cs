@@ -20,6 +20,7 @@ public class GameEventSubscriber : MonoBehaviour
         NextTurnEvent?.Invoke();
         yield return null;
     }
+
     private IEnumerator EndGame()
     {
         EndGameEvent?.Invoke();

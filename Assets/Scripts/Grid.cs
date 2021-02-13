@@ -30,9 +30,9 @@ public class Grid : MonoBehaviour
 
     public void SetGridImage()
     {
-        _button.image.sprite = _playersData.PlayerImage[_playersData.PlayerID];
-        _button.interactable = false;
         PlayerID = _playersData.PlayerID;
+        _button.image.sprite = _playersData.PlayerImage[PlayerID];
+        _button.interactable = false;
         movesRecord.movesRecorder.Push(SlotNum);
         _gameEvent.FireEvent("NextTurn");
     }

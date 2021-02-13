@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class Players : MonoBehaviour
 {
     [SerializeField] private PlayersData _playersData;
+    [SerializeField] private GameEvent _gameEvent;
     public int CurrentPlayer { get; set; }
     private int _currPlay = 1;
+
     private void Awake()
     {
         CurrentPlayer = _playersData.PlayerID;
@@ -19,9 +21,11 @@ public class Players : MonoBehaviour
         _currPlay++;
         _playersData.PlayerID = CurrentPlayer;
     }
+
     public void EndGame()
     {
         _playersData.PlayerID = 0;
+        _playersData.ComputersTurn = false;
         //add UI that tells which player X/O
     }
 }
