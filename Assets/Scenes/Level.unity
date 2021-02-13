@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  EndGameEvent:
+  OnEndGame:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 60225024}
@@ -166,13 +166,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  NextTurnEvent:
+  OnNextTurn:
     m_PersistentCalls:
       m_Calls: []
-  SetCurrentPlayerEvent:
+  OnSetCurrentPlayer:
     m_PersistentCalls:
       m_Calls: []
-  RestartGameEvent:
+  OnRestartGame:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAssignRandom:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &60225024
@@ -210,6 +213,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 869957234}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,6 +348,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 256195480}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1050,10 +1073,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  EndGameEvent:
+  OnEndGame:
     m_PersistentCalls:
       m_Calls: []
-  NextTurnEvent:
+  OnNextTurn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 682198056}
@@ -1067,14 +1090,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  SetCurrentPlayerEvent:
+  OnSetCurrentPlayer:
     m_PersistentCalls:
       m_Calls: []
-  RestartGameEvent:
+  OnRestartGame:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 682198056}
-        m_MethodName: RestartGame
+        m_MethodName: NextTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1084,6 +1107,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnAssignRandom:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &715247085 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 463002093, guid: 5048442516211824faaaf7cb10a730b4,
@@ -1215,6 +1241,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 274240480}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1393,7 +1429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  EndGameEvent:
+  OnEndGame:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 841732417}
@@ -1407,7 +1443,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  NextTurnEvent:
+  OnNextTurn:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 841732417}
@@ -1421,10 +1457,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  SetCurrentPlayerEvent:
+  OnSetCurrentPlayer:
     m_PersistentCalls:
       m_Calls: []
-  RestartGameEvent:
+  OnRestartGame:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 841732417}
+        m_MethodName: ResetTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAssignRandom:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &869957234 stripped
@@ -1520,6 +1570,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 715247085}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2054,6 +2114,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 640730341}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2191,6 +2261,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1091064041}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2340,7 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  EndGameEvent:
+  OnEndGame:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1550279365}
@@ -2354,10 +2434,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  NextTurnEvent:
+  OnNextTurn:
     m_PersistentCalls:
       m_Calls: []
-  SetCurrentPlayerEvent:
+  OnSetCurrentPlayer:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1550279365}
@@ -2371,9 +2451,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  RestartGameEvent:
+  OnRestartGame:
     m_PersistentCalls:
       m_Calls: []
+  OnAssignRandom:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1550279365}
+        m_MethodName: AssignPlayersInRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1550279365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2409,6 +2503,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6572375223341429192}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2528,6 +2632,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1321571366}
+    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
+        type: 3}
+      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetGridSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x

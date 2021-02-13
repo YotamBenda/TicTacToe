@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         _gameEndMenu.SetActive(false);
+        _gameEvent.FireEvent("AssignRandom");
         _gameEvent.FireEvent("RestartGame");
     }
 }

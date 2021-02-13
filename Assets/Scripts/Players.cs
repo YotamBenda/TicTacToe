@@ -10,7 +10,7 @@ public class Players : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     public int CurrentPlayer { get; set; }
     private int _currPlay = 1;
-    private bool _shouldSwitchPlayerComputer;
+    private bool _playerVsComputer;
 
     private void Awake()
     {
@@ -20,12 +20,12 @@ public class Players : MonoBehaviour
     public void SetCurrentPlayer()
     {
         var check = _currPlay % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
-        _currPlay++;
         _playersData.PlayerID = CurrentPlayer;
-        if (_shouldSwitchPlayerComputer)
+        if (_playerVsComputer)
         {
             _playersData.ComputersTurn = !_playersData.ComputersTurn;
         }
+        _currPlay++;
         _gameEvent.FireEvent("NextTurn");
     }
 
@@ -48,12 +48,20 @@ public class Players : MonoBehaviour
                 break;
 
             case 1:
-                _shouldSwitchPlayerComputer = true;
+                _playerVsComputer = true;
                 break;
 
             case 2:
                 _playersData.ComputersTurn = true;
                 break;
+        }
+    }
+
+    public void AssignPlayersInRandom()
+    {
+        if (_playerVsComputer)
+        {
+            _playersData.ComputersTurn = true;/* (Random.value > 0.5f);*/
         }
     }
 

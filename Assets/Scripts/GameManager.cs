@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Solutions _solutions;
     [SerializeField] private Grid[] _gridMapInit;
 
-    private int gameMode;
-    private bool _shouldSwitchPlayerComputer = false;
     private Grid[,] _gridMap;
 
     public GameManager()
@@ -41,40 +39,34 @@ public class GameManager : MonoBehaviour
             StartCoroutine("PlaceComputersTurn");
         }
         CheckIfGameEnded();
-    }
+    } 
 
     // used an Enumerator to give the computers turn delay before setting a move.
     private IEnumerator PlaceComputersTurn() 
     {
         yield return new WaitForSeconds(_playersData.ComputersDelay);
         _gridMapInit[CheckForHint(false)].SetGridImage();
-        if (_shouldSwitchPlayerComputer)
-        {
-            _playersData.ComputersTurn = !_playersData.ComputersTurn;
-        }
         CheckIfGameEnded();
     }
 
-    public void CheckIfGameEnded()
+    public bool CheckIfGameEnded()
     {
         var currTurn = _playersData.PlayerID;
         if (_movesRecord.movesRecorder.Count > 4 && _solutions.CheckIfGameWon(_gridMap)) // one of the players won.
         {
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
-            Debug.Log("game has ended!, the winner is player" + (currTurn + 1));
-            Time.timeScale = 0;
-            Debug.Log("time scale is " + Time.timeScale);
-            return;
+            Debug.Log("game has ended!, the winner is player" + (currTurn));
+            return true;
         }
         if (_movesRecord.movesRecorder.Count == _gridMapInit.Length) // draw.
         {
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
             Debug.Log("game has ended with a draw!");
-            Time.timeScale = 0;
-            return;
+            return true;
         }
+        return false;
     }
 
     public int CheckForHint(bool shouldShow)
@@ -95,11 +87,6 @@ public class GameManager : MonoBehaviour
         }
         return usableSlots[random];
     }
-    
-    public void RestartGame()
-    {
-        Time.timeScale = 1;
-    }
 
     private void InitScriptableObjects()
     {
@@ -116,6 +103,7 @@ public class GameManager : MonoBehaviour
             {
                 _gridMap[i, j] = _gridMapInit[slotNum];
                 _gridMap[i, j].SlotNum = slotNum;
+                _gridMap[i, j].SetGameManager(this);
                 slotNum++;
             }
         }

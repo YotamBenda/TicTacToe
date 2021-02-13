@@ -34,10 +34,14 @@ public class Grid : MonoBehaviour
         _button.image.sprite = _playersData.PlayerImage[PlayerID];
         _button.interactable = false;
         movesRecord.movesRecorder.Push(SlotNum);
+        if (gameManager.CheckIfGameEnded())
+        {
+            return;
+        }
         _gameEvent.FireEvent("SetCurrentPlayer");
     }
 
-    public void EndGame()
+    public void ResetGridSlot()
     {
         _button.image.sprite = _playersData.PlayerImage[2]; 
         _button.interactable = true;

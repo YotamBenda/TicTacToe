@@ -6,10 +6,12 @@ using UnityEngine.Events;
 public class GameEventSubscriber : MonoBehaviour
 {
     public GameEvent gameEvent;
-    public UnityEvent EndGameEvent;
-    public UnityEvent NextTurnEvent;
-    public UnityEvent SetCurrentPlayerEvent;
-    public UnityEvent RestartGameEvent;
+
+    public UnityEvent OnEndGame;
+    public UnityEvent OnNextTurn;
+    public UnityEvent OnSetCurrentPlayer;
+    public UnityEvent OnRestartGame;
+    public UnityEvent OnAssignRandom;
 
     public void OnEventFired(string eventName)
     {
@@ -18,25 +20,31 @@ public class GameEventSubscriber : MonoBehaviour
 
     private IEnumerator NextTurn()
     {
-        NextTurnEvent?.Invoke();
+        OnNextTurn?.Invoke();
         yield return null;
     }
 
     private IEnumerator EndGame()
     {
-        EndGameEvent?.Invoke();
+        OnEndGame?.Invoke();
         yield return null;
     }
 
     private IEnumerator SetCurrentPlayer()
     {
-        SetCurrentPlayerEvent?.Invoke();
+        OnSetCurrentPlayer?.Invoke();
         yield return null;
     }
 
     private IEnumerator RestartGame()
     {
-        RestartGameEvent?.Invoke();
+        OnRestartGame?.Invoke();
+        yield return null;
+    }
+
+    private IEnumerator AssignRandom()
+    {
+        OnAssignRandom?.Invoke();
         yield return null;
     }
 
