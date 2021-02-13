@@ -14,7 +14,12 @@ public class GameEventSubscriber : MonoBehaviour
     public UnityEvent OnAssignRandom;
     public UnityEvent OnUndoMoves;
     public UnityEvent OnPauseGame;
+    public UnityEvent OnContinueGame;
 
+    private void Awake()
+    {
+        
+    }
     public void OnEventFired(string eventName)
     {
         StartCoroutine(eventName);
@@ -59,6 +64,12 @@ public class GameEventSubscriber : MonoBehaviour
     private IEnumerator PauseGame()
     {
         OnPauseGame?.Invoke();
+        yield return null;
+    }
+
+    private IEnumerator ContinueGame()
+    {
+        OnContinueGame?.Invoke();
         yield return null;
     }
 

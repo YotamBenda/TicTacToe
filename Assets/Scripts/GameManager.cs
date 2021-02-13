@@ -90,7 +90,11 @@ public class GameManager : MonoBehaviour
 
     public void UndoLastMoves()
     {
-        _gridMapInit[_movesRecord.movesRecorder.Pop()].ResetGridSlot();
+        if(_movesRecord.movesRecorder.Count > 1 && _playersData.GameModes[0] == false)
+        {
+            _gridMapInit[_movesRecord.movesRecorder.Pop()].ResetGridSlot();
+            _gridMapInit[_movesRecord.movesRecorder.Pop()].ResetGridSlot();
+        }
     }
 
     private void InitScriptableObjects()
