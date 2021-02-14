@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayersData : ScriptableObject
 {
     public Sprite[] PlayerImage;
-    public int PlayerID = 0;
+    public int PlayerImgToUse = 0;
+    public int PlayersTurnsOrder;
     public bool[] GameModes = new bool[3];
     public bool ComputersTurn;
     public float ComputersDelay = 2f;

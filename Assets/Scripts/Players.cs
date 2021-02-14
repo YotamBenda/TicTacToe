@@ -1,31 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Players : MonoBehaviour
 {
+    [Header("Scriptable Objects")]
     [SerializeField] private PlayersData _playersData;
     [SerializeField] private GameEvent _gameEvent;
+
     public int CurrentPlayer { get; set; }
-    private int _currPlay = 1;
+    private int _playsCounter = 1;
     private bool _playerVsComputer;
 
     private void Awake()
     {
-        CurrentPlayer = _playersData.PlayerID;
+        CurrentPlayer = _playersData.PlayerImgToUse;
         CheckGameMode();
     }
     public void SetCurrentPlayer()
     {
-        var check = _currPlay % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
-        _playersData.PlayerID = CurrentPlayer;
+        var check = _playsCounter % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
+        _playersData.PlayerImgToUse = CurrentPlayer;
         if (_playerVsComputer)
         {
             _playersData.ComputersTurn = !_playersData.ComputersTurn;
         }
-        _currPlay++;
+        _playsCounter++;
         _gameEvent.FireEvent("NextTurn");
     }
 
@@ -63,12 +64,16 @@ public class Players : MonoBehaviour
         {
             _playersData.ComputersTurn = (Random.value > 0.5f);
         }
+        else if (Random.value > 0.5f)
+        {
+            _playersData.PlayersTurnsOrder = 0; //TODO
+        }
     }
 
     public void EndGame()
     {
-        _playersData.PlayerID = 0;
-        _currPlay = 1;
+        _playersData.PlayerImgToUse = 0;
+        _playsCounter = 1;
         //add UI that tells which player X/O
     }
 }

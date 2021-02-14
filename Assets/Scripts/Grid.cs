@@ -9,7 +9,7 @@ public class Grid : MonoBehaviour
     public int PlayerID { get; set; }
 
     private Button _button;
-    private GameManager gameManager; // ctor? //event?
+    private GameManager gameManager; 
 
     [Header("Scriptable Objects")]
     [SerializeField] private PlayersData _playersData;
@@ -30,7 +30,7 @@ public class Grid : MonoBehaviour
 
     public void SetGridImage()
     {
-        PlayerID = _playersData.PlayerID;
+        PlayerID = _playersData.PlayerImgToUse;
         _button.image.sprite = _playersData.PlayerImage[PlayerID];
         _button.interactable = false;
         movesRecord.movesRecorder.Push(SlotNum);

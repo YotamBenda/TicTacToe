@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public bool CheckIfGameEnded()
     {
-        var currTurn = _playersData.PlayerID;
+        var currTurn = _playersData.PlayerImgToUse;
         if (_movesRecord.movesRecorder.Count > 4 && _solutions.CheckIfGameWon(_gridMap)) // one of the players won.
         {
             _gameEvent.FireEvent("EndGame");
@@ -90,22 +90,23 @@ public class GameManager : MonoBehaviour
 
     public void UndoLastMoves()
     {
-        var currStack = _movesRecord.movesRecorder;
-        if (currStack.Count > 1 && _playersData.GameModes[0] == false)
+        var lastMove = _movesRecord.movesRecorder;
+        if (lastMove.Count > 0 && _playersData.GameModes[0] == false)
         {
-            _gridMapInit[currStack.Pop()].ResetGridSlot();
-            _gridMapInit[currStack.Pop()].ResetGridSlot();
+            _gridMapInit[lastMove.Pop()].ResetGridSlot();
+            _gridMapInit[lastMove.Pop()].ResetGridSlot();
+
         }
-        if(currStack.Count == 1)
+        if (lastMove.Count == 1)
         {
-            _gridMapInit[currStack.Pop()].ResetGridSlot();
+            _gridMapInit[lastMove.Pop()].ResetGridSlot();
         }
     }
 
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();
-        _playersData.PlayerID = 0;
+        _playersData.PlayerImgToUse = 0;
     }
 
     private void InitGridsNum()

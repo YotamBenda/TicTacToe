@@ -21,7 +21,7 @@ public class GameEventSubscriber : MonoBehaviour
 
     private void Awake()
     {
-        stamevent.AddListener(stamaction);
+        
     }
     public void OnEventFired(string eventName)
     {

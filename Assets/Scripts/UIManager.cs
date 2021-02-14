@@ -7,10 +7,13 @@ public class UIManager : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private GameEvent _gameEvent;
+    [SerializeField] private PlayersData _playersData;
 
     [Header("UI Menus")]
     [SerializeField] private GameObject _gameEndMenu;
     [SerializeField] private GameObject _gamePauseMenu;
+    [SerializeField] private Image _player1;
+    [SerializeField] private Image _player2;
 
     public void EndGame()
     {
@@ -21,6 +24,7 @@ public class UIManager : MonoBehaviour
         _gameEndMenu.SetActive(false);
         _gameEvent.FireEvent("AssignRandom");
         _gameEvent.FireEvent("RestartGame");
+        RandomAssignXOImages();
     }
 
     public void PauseGame()
@@ -37,5 +41,20 @@ public class UIManager : MonoBehaviour
     {
         _gamePauseMenu.SetActive(false);
         _gameEvent.FireEvent("ContinueGame");
+    }
+
+    private void RandomAssignXOImages()
+    {
+        var XOImages = _playersData.PlayerImage;
+        if (_playersData.ComputersTurn)
+        {
+            _player1.sprite = XOImages[1];
+            _player2.sprite = XOImages[0];
+        }
+        else
+        {
+            _player1.sprite = XOImages[0];
+            _player2.sprite = XOImages[1];
+        }
     }
 }
