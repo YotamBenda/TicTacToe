@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         random = Random.Range(0, usableSlots.Count - 1);
         if (shouldShow)
         {
-            //_gridMapInit[random].ShowHint();
+            _gridMapInit[random].ShowHint();
         }
         return usableSlots[random];
     }
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
 
         }
-        if (lastMove.Count == 1)
+        else if (lastMove.Count == 1)
         {
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
         }

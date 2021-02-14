@@ -16,6 +16,7 @@ public class Grid : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     [SerializeField] private PlayerData[] _playersDataNew;
     [SerializeField] private Sprite _neutralImage;
+    [SerializeField] private Sprite _hintImage;
 
 
     private void Awake()
@@ -47,5 +48,18 @@ public class Grid : MonoBehaviour
         _button.image.sprite = _neutralImage;
         _button.interactable = true;
         PlayerID = -1;
+    }
+
+    public void ShowHint()
+    {
+        _button.image.sprite = _hintImage;
+    }
+
+    public void RemoveHint()
+    {
+        if (_button.image.sprite = _hintImage)
+        {
+            _button.image.sprite = _neutralImage;
+        }
     }
 }
