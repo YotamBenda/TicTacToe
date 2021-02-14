@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour
 {
-    [Header("Scriptable Objects")]
+    [Header("Game Attribues")]
     [SerializeField] private PlayerData[] playersData = new PlayerData[2];
+    [SerializeField] private GameData gameData;
+    [SerializeField] private InputField assetNameInput;
+
 
     public void SetGameMode(int gameMode)
     {
@@ -34,5 +38,10 @@ public class MainMenuUI : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadAssetBundle()
+    {
+        gameData.AssetBundleToLoad = assetNameInput.text;
     }
 }

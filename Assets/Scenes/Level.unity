@@ -206,12 +206,13 @@ MonoBehaviour:
   _playersData:
   - {fileID: 11400000, guid: 881337c423f75c34eaf072605098007c, type: 2}
   - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
+  _gameData: {fileID: 11400000, guid: e0db7b2ff3ebaa0449fffc270b2be4e0, type: 2}
   _gameEndMenu: {fileID: 1156414012}
   _gamePauseMenu: {fileID: 404526092}
   _playersImageUI:
   - {fileID: 217967919}
   - {fileID: 918143119}
-  _assetBundleLoader: {fileID: 1262335037}
+  _background: {fileID: 1210920734}
 --- !u!4 &60225025
 Transform:
   m_ObjectHideFlags: 0
@@ -2898,7 +2899,7 @@ GameObject:
   - component: {fileID: 1210920735}
   - component: {fileID: 1210920734}
   m_Layer: 5
-  m_Name: Board
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3124,6 +3125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c2ff1cdfae2b384883d1c29fa4ea525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerData:
+  - {fileID: 11400000, guid: 881337c423f75c34eaf072605098007c, type: 2}
+  - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
+  _gameData: {fileID: 11400000, guid: e0db7b2ff3ebaa0449fffc270b2be4e0, type: 2}
 --- !u!4 &1262335038
 Transform:
   m_ObjectHideFlags: 0
@@ -3728,16 +3733,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 731348644}
     m_Modifications:
-    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
-        type: 3}
-      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 6572375223341429192}
-    - target: {fileID: 3135868075113825870, guid: 5048442516211824faaaf7cb10a730b4,
-        type: 3}
-      propertyPath: OnRestartGame.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResetGridSlot
-      objectReference: {fileID: 0}
     - target: {fileID: 6572375224925440338, guid: 5048442516211824faaaf7cb10a730b4,
         type: 3}
       propertyPath: m_LocalPosition.x
