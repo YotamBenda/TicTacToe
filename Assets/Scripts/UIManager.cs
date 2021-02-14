@@ -12,9 +12,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Menus")]
     [SerializeField] private GameObject _gameEndMenu;
     [SerializeField] private GameObject _gamePauseMenu;
-    [SerializeField] private Sprite[] _playersImageUI;
-
-    private Sprite[] _imageStock = new Sprite[2];
+    [SerializeField] private Image[] _playersImageUI;
 
     private void Start()
     {
@@ -52,7 +50,7 @@ public class UIManager : MonoBehaviour
     {
         for (int i = 0; i < _playersImageUI.Length; i++)
         {
-            _playersImageUI[i] = _playersData[i].PlayerImage;
+            _playersImageUI[i].sprite = _playersData[i].PlayerImage;
         }
     }
 }

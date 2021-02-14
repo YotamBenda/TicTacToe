@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad56cbde906ee01408e75d00a2877f23, type: 3}
   m_Name: Player2
   m_EditorClassIdentifier: 
-  PlayerImage: {fileID: 21300000, guid: 5e8278e012ff04d9a8bbd92350645568, type: 3}
+  PlayerImage: {fileID: 21300000, guid: bd30ced15dd1c4a81a8798331e1abe4a, type: 3}
   PlayerID: 1
-  isComputer: 1
+  isComputer: 0
   ComputersDelay: 2

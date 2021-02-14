@@ -208,8 +208,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
   _gameEndMenu: {fileID: 1156414012}
   _gamePauseMenu: {fileID: 404526092}
-  _player1: {fileID: 217967919}
-  _player2: {fileID: 918143119}
+  _playersImageUI:
+  - {fileID: 217967919}
+  - {fileID: 918143119}
 --- !u!4 &60225025
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,7 +1298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movesRecord: {fileID: 11400000, guid: 5e07de53b45deb64abd83134107b566e, type: 2}
   _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  _playersData: []
+  _playersData:
+  - {fileID: 11400000, guid: 881337c423f75c34eaf072605098007c, type: 2}
+  - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
   _solutions: {fileID: 245104057}
   _gridMapInit:
   - {fileID: 463002093}
@@ -3498,7 +3501,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameEvent: {fileID: 11400000, guid: af179b003677c73478b69a3f9eb8191b, type: 2}
-  _playersData: []
+  _playersData:
+  - {fileID: 11400000, guid: 881337c423f75c34eaf072605098007c, type: 2}
+  - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
   _imagesStock:
   - {fileID: 21300000, guid: 5e8278e012ff04d9a8bbd92350645568, type: 3}
   - {fileID: 21300000, guid: bd30ced15dd1c4a81a8798331e1abe4a, type: 3}

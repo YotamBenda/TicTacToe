@@ -35,7 +35,7 @@ public class Players : MonoBehaviour
 
     public void AssignPlayersInRandom()
     {
-        var check = /*(Random.Range(0, 1))*/1;
+        var check = (Random.Range(0, 1));
         _playersData[0].PlayerImage = _imagesStock[check];
 
         if (check == 0)
