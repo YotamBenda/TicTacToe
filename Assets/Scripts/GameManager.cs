@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameManager()
     {
-        _gridMap = new Grid[3,3];
+        _gridMap = new Grid[3, 3];
     }
 
     private void Awake()
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         NextTurn();
     }
 
-    public void NextTurn() 
+    public void NextTurn()
     {
         var currPlayer = Players.CurrentPlayer;
         if (_playersData[currPlayer].isComputer)
@@ -53,10 +53,10 @@ public class GameManager : MonoBehaviour
             CheckForHint(true);
         }
         CheckIfGameEnded();
-    } 
+    }
 
     // used an Enumerator to give the computers turn delay before setting a move.
-    private IEnumerator PlaceComputersTurn() 
+    private IEnumerator PlaceComputersTurn()
     {
         yield return new WaitForSeconds(_playersData[0].ComputersDelay);
         usableSlots[CheckForHint(false)].SetGridImage();
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         int random;
         for (int i = 0; i < _gridMapInit.Length; i++)
         {
-            if(_gridMapInit[i].PlayerID == -1)
+            if (_gridMapInit[i].PlayerID == -1)
             {
                 usableSlots.Add(_gridMapInit[i]);
             }
