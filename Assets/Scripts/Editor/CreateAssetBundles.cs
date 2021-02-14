@@ -42,10 +42,10 @@ public class CreateAssetBundles : EditorWindow
             string X_Image_assetPath = AssetDatabase.GetAssetPath(X_Image);
             string O_Image_assetPath = AssetDatabase.GetAssetPath(O_Image);
             string BG_assetPath = AssetDatabase.GetAssetPath(_background);
-
-            AssetImporter.GetAtPath(X_Image_assetPath).SetAssetBundleNameAndVariant("_assetBundleName", "");
-            AssetImporter.GetAtPath(O_Image_assetPath).SetAssetBundleNameAndVariant("_assetBundleName", "");
-            AssetImporter.GetAtPath(BG_assetPath).SetAssetBundleNameAndVariant("_assetBundleName", "");
+            
+            AssetImporter.GetAtPath(X_Image_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
+            AssetImporter.GetAtPath(O_Image_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
+            AssetImporter.GetAtPath(BG_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
         }
 
     }

@@ -14,10 +14,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gamePauseMenu;
     [SerializeField] private Image[] _playersImageUI;
 
-    private void Start()
-    {
-        
-    }
+    [Header("AssetBundle Setup")]
+    [SerializeField] private LoadAssetBundles _assetBundleLoader;
+
     public void EndGame()
     {
         _gameEndMenu.SetActive(true);
@@ -46,6 +45,11 @@ public class UIManager : MonoBehaviour
         _gameEvent.FireEvent("ContinueGame");
     }
 
+    public void LoadAssetBundle(string bundleName)
+    {
+        _assetBundleLoader.LoadAssetBundle(bundleName);
+    }
+
     private void AssignXOImages()
     {
         for (int i = 0; i < _playersImageUI.Length; i++)
@@ -53,4 +57,6 @@ public class UIManager : MonoBehaviour
             _playersImageUI[i].sprite = _playersData[i].PlayerImage;
         }
     }
+
+
 }
