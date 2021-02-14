@@ -12,9 +12,10 @@ public class Grid : MonoBehaviour
     private GameManager gameManager; 
 
     [Header("Scriptable Objects")]
-    [SerializeField] private PlayersData _playersData;
     [SerializeField] private MovesRecorder movesRecord;
     [SerializeField] private GameEvent _gameEvent;
+    [SerializeField] private PlayerData[] _playersDataNew;
+    [SerializeField] private Sprite _neutralImage;
 
 
     private void Awake()
@@ -30,8 +31,8 @@ public class Grid : MonoBehaviour
 
     public void SetGridImage()
     {
-        PlayerID = _playersData.PlayerImgToUse;
-        _button.image.sprite = _playersData.PlayerImage[PlayerID];
+        PlayerID = Players.CurrentPlayer;
+        _button.image.sprite = _playersDataNew[PlayerID].PlayerImage;
         _button.interactable = false;
         movesRecord.movesRecorder.Push(SlotNum);
         if (gameManager.CheckIfGameEnded())
@@ -43,7 +44,7 @@ public class Grid : MonoBehaviour
 
     public void ResetGridSlot()
     {
-        _button.image.sprite = _playersData.PlayerImage[2]; 
+        _button.image.sprite = _neutralImage;
         _button.interactable = true;
         PlayerID = -1;
     }

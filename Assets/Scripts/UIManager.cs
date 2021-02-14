@@ -7,14 +7,19 @@ public class UIManager : MonoBehaviour
 {
     [Header("Scriptable Objects")]
     [SerializeField] private GameEvent _gameEvent;
-    [SerializeField] private PlayersData _playersData;
+    [SerializeField] private PlayerData[] _playersData;
 
     [Header("UI Menus")]
     [SerializeField] private GameObject _gameEndMenu;
     [SerializeField] private GameObject _gamePauseMenu;
-    [SerializeField] private Image _player1;
-    [SerializeField] private Image _player2;
+    [SerializeField] private Sprite[] _playersImageUI;
 
+    private Sprite[] _imageStock = new Sprite[2];
+
+    private void Start()
+    {
+        
+    }
     public void EndGame()
     {
         _gameEndMenu.SetActive(true);
@@ -24,7 +29,7 @@ public class UIManager : MonoBehaviour
         _gameEndMenu.SetActive(false);
         _gameEvent.FireEvent("AssignRandom");
         _gameEvent.FireEvent("RestartGame");
-        RandomAssignXOImages();
+        AssignXOImages();
     }
 
     public void PauseGame()
@@ -43,18 +48,11 @@ public class UIManager : MonoBehaviour
         _gameEvent.FireEvent("ContinueGame");
     }
 
-    private void RandomAssignXOImages()
+    private void AssignXOImages()
     {
-        var XOImages = _playersData.PlayerImage;
-        if (_playersData.ComputersTurn)
+        for (int i = 0; i < _playersImageUI.Length; i++)
         {
-            _player1.sprite = XOImages[1];
-            _player2.sprite = XOImages[0];
-        }
-        else
-        {
-            _player1.sprite = XOImages[0];
-            _player2.sprite = XOImages[1];
+            _playersImageUI[i] = _playersData[i].PlayerImage;
         }
     }
 }

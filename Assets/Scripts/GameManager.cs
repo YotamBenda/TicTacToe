@@ -6,15 +6,16 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [Header("Scripteable Objects")]
-    [SerializeField] private PlayersData _playersData;
     [SerializeField] private MovesRecorder _movesRecord;
     [SerializeField] private GameEvent _gameEvent;
+    [SerializeField] private PlayerData[] _playersData;
 
     [Header("Game Setup")]
     [SerializeField] private Solutions _solutions;
     [SerializeField] private Grid[] _gridMapInit;
 
     private Grid[,] _gridMap;
+    private bool _shouldUndo = false;
 
     public GameManager()
     {
@@ -34,8 +35,10 @@ public class GameManager : MonoBehaviour
 
     public void NextTurn() 
     {
-        if (_playersData.ComputersTurn)
+        var currPlayer = Players.CurrentPlayer;
+        if (_playersData[currPlayer].isComputer)
         {
+            _shouldUndo = true;
             StartCoroutine("PlaceComputersTurn");
         }
         CheckIfGameEnded();
@@ -44,14 +47,14 @@ public class GameManager : MonoBehaviour
     // used an Enumerator to give the computers turn delay before setting a move.
     private IEnumerator PlaceComputersTurn() 
     {
-        yield return new WaitForSeconds(_playersData.ComputersDelay);
+        yield return new WaitForSeconds(_playersData[0].ComputersDelay);
         _gridMapInit[CheckForHint(false)].SetGridImage();
         CheckIfGameEnded();
     }
 
     public bool CheckIfGameEnded()
     {
-        var currTurn = _playersData.PlayerImgToUse;
+        var currTurn = Players.CurrentPlayer;
         if (_movesRecord.movesRecorder.Count > 4 && _solutions.CheckIfGameWon(_gridMap)) // one of the players won.
         {
             _gameEvent.FireEvent("EndGame");
@@ -91,7 +94,7 @@ public class GameManager : MonoBehaviour
     public void UndoLastMoves()
     {
         var lastMove = _movesRecord.movesRecorder;
-        if (lastMove.Count > 0 && _playersData.GameModes[0] == false)
+        if (lastMove.Count > 0 && _shouldUndo)
         {
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
@@ -106,7 +109,6 @@ public class GameManager : MonoBehaviour
     private void InitScriptableObjects()
     {
         _movesRecord.movesRecorder.Clear();
-        _playersData.PlayerImgToUse = 0;
     }
 
     private void InitGridsNum()

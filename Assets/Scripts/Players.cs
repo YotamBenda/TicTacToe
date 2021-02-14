@@ -1,79 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Players : MonoBehaviour
 {
     [Header("Scriptable Objects")]
-    [SerializeField] private PlayersData _playersData;
     [SerializeField] private GameEvent _gameEvent;
+    [SerializeField] private PlayerData[] _playersData;
+    [SerializeField] private Sprite[] _imagesStock = new Sprite[2];
 
-    public int CurrentPlayer { get; set; }
-    private int _playsCounter = 1;
+    public static int CurrentPlayer { get; set; }
+    private int _playsCounter = 0;
     private bool _playerVsComputer;
 
     private void Awake()
     {
-        CurrentPlayer = _playersData.PlayerImgToUse;
-        CheckGameMode();
+        CurrentPlayer = 0;
     }
-    public void SetCurrentPlayer()
+    private void Start()
     {
-        var check = _playsCounter % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
-        _playersData.PlayerImgToUse = CurrentPlayer;
-        if (_playerVsComputer)
+        for (int i = 0; i < _playersData.Length; i++)
         {
-            _playersData.ComputersTurn = !_playersData.ComputersTurn;
+             _playersData[i].PlayerImage = _imagesStock[i];
         }
+    }
+    public void SetNextPlayer()
+    {
         _playsCounter++;
+        var check = _playsCounter % 2 == 0 ? CurrentPlayer = 0 : CurrentPlayer = 1;
         _gameEvent.FireEvent("NextTurn");
-    }
-
-    public void CheckGameMode()
-    {
-        var gameModes = _playersData.GameModes;
-        var index = 0;
-        for (int i = 0; i < gameModes.Length; i++)
-        {
-            if (gameModes[i])
-            {
-                index = i;
-                break;
-            }
-        }
-        switch (index)
-        {
-            case 0:
-                _playersData.ComputersTurn = false;
-                break;
-
-            case 1:
-                _playerVsComputer = true;
-                break;
-
-            case 2:
-                _playersData.ComputersTurn = true;
-                break;
-        }
     }
 
     public void AssignPlayersInRandom()
     {
-        if (_playerVsComputer)
-        {
-            _playersData.ComputersTurn = (Random.value > 0.5f);
-        }
-        else if (Random.value > 0.5f)
-        {
-            _playersData.PlayersTurnsOrder = 0; //TODO
-        }
-    }
+        var check = /*(Random.Range(0, 1))*/1;
+        _playersData[0].PlayerImage = _imagesStock[check];
 
-    public void EndGame()
-    {
-        _playersData.PlayerImgToUse = 0;
-        _playsCounter = 1;
-        //add UI that tells which player X/O
+        if (check == 0)
+        {
+            _playersData[1].PlayerImage = _imagesStock[1];
+            CurrentPlayer = 0;
+            _playsCounter = 0;
+        }
+        else
+        {
+            _playersData[1].PlayerImage = _imagesStock[0];
+            CurrentPlayer = 1;
+            _playsCounter = 1;
+        }
     }
 }

@@ -6,7 +6,6 @@ public class Solutions : MonoBehaviour
 {   
     [Header("Scriptable Objects")]
     [SerializeField] private GameEvent _gameEvent;
-    [SerializeField] private PlayersData _playerData;
 
     public bool CheckIfGameWon(Grid[,] gridMap)
     {
