@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     private Grid[,] _gridMap;
     private bool _shouldUndo = false;
     private bool _shouldHint = false;
+    private List<Grid> usableSlots = new List<Grid>();
+
 
     public GameManager()
     {
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlaceComputersTurn() 
     {
         yield return new WaitForSeconds(_playersData[0].ComputersDelay);
-        _gridMapInit[CheckForHint(false)].SetGridImage();
+        usableSlots[CheckForHint(false)].SetGridImage();
         CheckIfGameEnded();
     }
 
@@ -83,21 +85,21 @@ public class GameManager : MonoBehaviour
 
     public int CheckForHint(bool shouldShow)
     {
-        var usableSlots = new List<int>();
+        usableSlots.Clear();
         int random;
         for (int i = 0; i < _gridMapInit.Length; i++)
         {
             if(_gridMapInit[i].PlayerID == -1)
             {
-                usableSlots.Add(i);
+                usableSlots.Add(_gridMapInit[i]);
             }
         }
         random = Random.Range(0, usableSlots.Count - 1);
         if (shouldShow)
         {
-            _gridMapInit[random].ShowHint();
+            usableSlots[random].ShowHint();
         }
-        return usableSlots[random];
+        return random;
     }
     public bool CheckIfPlayerVSComputer()
     {
