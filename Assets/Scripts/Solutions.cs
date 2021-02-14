@@ -7,8 +7,10 @@ public class Solutions : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private GameEvent _gameEvent;
 
+    private int _currPlayer;
     public bool CheckIfGameWon(Grid[,] gridMap)
     {
+        _currPlayer = Players.CurrentPlayer;
         return (CheckRows(gridMap) || CheckColumns(gridMap) || CheckDiagonals(gridMap));
     }
 

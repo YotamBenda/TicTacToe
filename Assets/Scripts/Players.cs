@@ -13,7 +13,6 @@ public class Players : MonoBehaviour
 
     public static int CurrentPlayer { get; set; }
     private int _playsCounter = 0;
-    private bool _playerVsComputer;
 
     private void Awake()
     {

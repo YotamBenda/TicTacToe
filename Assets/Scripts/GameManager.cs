@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private Grid[,] _gridMap;
     private bool _shouldUndo = false;
+    private bool _shouldHint = false;
 
     public GameManager()
     {
@@ -30,6 +31,11 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        if (CheckIfPlayerVSComputer())
+        {
+            _shouldUndo = true;
+            _shouldHint = true;
+        }
         NextTurn();
     }
 
@@ -38,8 +44,11 @@ public class GameManager : MonoBehaviour
         var currPlayer = Players.CurrentPlayer;
         if (_playersData[currPlayer].isComputer)
         {
-            _shouldUndo = true;
             StartCoroutine("PlaceComputersTurn");
+        }
+        else if (_shouldHint)
+        {
+            CheckForHint(true);
         }
         CheckIfGameEnded();
     } 
@@ -86,9 +95,15 @@ public class GameManager : MonoBehaviour
         random = Random.Range(0, usableSlots.Count - 1);
         if (shouldShow)
         {
-            Debug.Log(usableSlots[random]);
+            //_gridMapInit[random].ShowHint();
         }
         return usableSlots[random];
+    }
+    public bool CheckIfPlayerVSComputer()
+    {
+        var check = _playersData[1].isComputer;
+
+        return check;
     }
 
     public void UndoLastMoves()
