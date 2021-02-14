@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 811798711
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 30fdc2155f97571defe3ac28c1f02b21
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 25b0de44755a2b3dd1af8bc0a7e5588f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/BundledObjects/AssetToLoad.prefab
+Dependencies:
+- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/test bundle 3

@@ -7,7 +7,7 @@ public class CreateAssetBundles : EditorWindow
 {
     Sprite X_Image;
     Sprite O_Image;
-    Sprite _background;
+    Sprite Background;
     string _assetBundleName;
 
     [MenuItem("Window/CreateAssetBundle")]
@@ -24,7 +24,7 @@ public class CreateAssetBundles : EditorWindow
         O_Image = EditorGUILayout.ObjectField(O_Image, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
 
         GUILayout.Label("Background", EditorStyles.boldLabel);
-        _background =  EditorGUILayout.ObjectField(_background, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
+        Background =  EditorGUILayout.ObjectField(Background, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
 
         _assetBundleName = EditorGUILayout.TextField("AssetBundle Name", _assetBundleName);
 
@@ -34,19 +34,18 @@ public class CreateAssetBundles : EditorWindow
             {
                 Directory.CreateDirectory(Application.streamingAssetsPath);
             }
-            BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.ChunkBasedCompression, BuildTarget.StandaloneWindows);
+            BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
         }
         if(GUILayout.Button("Build AssetBundle"))
         {
             BuildAllAssetBundles();
             string X_Image_assetPath = AssetDatabase.GetAssetPath(X_Image);
             string O_Image_assetPath = AssetDatabase.GetAssetPath(O_Image);
-            string BG_assetPath = AssetDatabase.GetAssetPath(_background);
+            string BG_assetPath = AssetDatabase.GetAssetPath(Background);
             
             AssetImporter.GetAtPath(X_Image_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
             AssetImporter.GetAtPath(O_Image_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
             AssetImporter.GetAtPath(BG_assetPath).SetAssetBundleNameAndVariant(_assetBundleName, "");
         }
-
     }
 }

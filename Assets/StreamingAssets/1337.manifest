@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 50389938
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 7e64898f660d90fef67b1beef4c0600a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 25b0de44755a2b3dd1af8bc0a7e5588f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/BundledObjects/HintImage.prefab
+Dependencies:
+- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/1
