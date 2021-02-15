@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// This class gets information from ScriptableObjects that contain data of the game state.
+/// It's incharge of holding the Grids list, used to check if the game has ended, checking for possible hints and undo moves.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     [Header("Scripteable Objects")]
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
         InitScriptableObjects();
         InitGridsNum();
     }
+
     private void Start()
     {
         if (CheckIfPlayerVSComputer())
@@ -40,6 +45,12 @@ public class GameManager : MonoBehaviour
         NextTurn();
     }
 
+    /// <summary>
+    /// NextTurn checks if the current player to place on the board is a computer. if so, it triggers the PlaceComputersTurn Enumartor.
+    /// The Enumerator is used in order to give the computer a delay time before placing his turn.
+    /// If it's not the computer's turn, it checks for hints and displays for the player.
+    /// <param _shouldHint> is false when the game mode is set to Player vs Player only. </param>
+    /// </summary>
     public void NextTurn()
     {
         var currPlayer = Players.CurrentPlayer;
@@ -54,7 +65,6 @@ public class GameManager : MonoBehaviour
         CheckIfGameEnded();
     }
 
-    // used an Enumerator to give the computers turn delay before setting a move.
     private IEnumerator PlaceComputersTurn()
     {
         yield return new WaitForSeconds(_playersData[0].ComputersDelay);
@@ -62,6 +72,12 @@ public class GameManager : MonoBehaviour
         CheckIfGameEnded();
     }
 
+    /// <summary>
+    /// CheckIfGameEnded 1st if statement checks if there were 5 moves or more && asks Solutions if game was won by one of the players
+    /// 2nd if statement checks if there have been the same amount of moves as the board's amount of Grids, in which case -
+    /// calls a Draw by setting CurrentPlayer to -1 (this is used by UIManager to set Draw message.
+    /// </summary>
+    /// <returns></returns>
     public bool CheckIfGameEnded()
     {
         var currTurn = Players.CurrentPlayer;
@@ -69,7 +85,6 @@ public class GameManager : MonoBehaviour
         {
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
-            Debug.Log("game has ended!, the winner is player" + (currTurn));
             return true;
         }
         if (_movesRecord.movesRecorder.Count == _gridMapInit.Length) // draw.
@@ -77,12 +92,18 @@ public class GameManager : MonoBehaviour
             Players.CurrentPlayer = -1;
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
-            Debug.Log("game has ended with a draw!");
             return true;
         }
         return false;
     }
 
+    /// <summary>
+    /// CheckForHint takes
+    /// </summary>
+    /// <param name="shouldShow"></param>
+    /// <param name="usableSlots"></param>
+    /// <param name="gridMap"></param>
+    /// <returns></returns>
     public int CheckForHint(bool shouldShow, List<Grid> usableSlots, Grid[] gridMap)
     {
         usableSlots.Clear();
@@ -127,6 +148,7 @@ public class GameManager : MonoBehaviour
     {
         _movesRecord.movesRecorder.Clear();
     }
+
 
     private void InitGridsNum()
     {
