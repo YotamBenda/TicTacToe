@@ -7,7 +7,6 @@ public class Timer : MonoBehaviour
     [Header("Scriptable Objects")]
     [SerializeField] private GameEvent _gameEvent;
     [SerializeField] private TimerData _timerData;
-    [SerializeField] private float _timer;
 
     private bool _gamePaused = false;
 
@@ -23,15 +22,15 @@ public class Timer : MonoBehaviour
 
     private void RunTimer()
     {
-        _timer -= Time.deltaTime;
-        if (_timer <= 0)
+        _timerData.Timer -= Time.deltaTime;
+        if (_timerData.Timer <= 0)
         {
             _gameEvent.FireEvent("EndGame");
         }
     }
     public void ResetTimer()
     {
-        _timer = _timerData.TimeForTurn;
+        _timerData.Timer = _timerData.TimeForTurn;
     }
 
     public void PauseTimer()

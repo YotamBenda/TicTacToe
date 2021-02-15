@@ -9,21 +9,39 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     [SerializeField] private PlayerData[] _playersData;
     [SerializeField] private GameData _gameData;
+    [SerializeField] private TimerData _timerData;
 
     [Header("UI Menus and Attributes")]
     [SerializeField] private GameObject _gameEndMenu;
     [SerializeField] private GameObject _gamePauseMenu;
     [SerializeField] private Image[] _playersImageUI;
     [SerializeField] private Image _background;
+    [SerializeField] private Text _timerText;
+    [SerializeField] private Text _winnerText;
 
     private void Start()
     {
         _background = _gameData.Background;
     }
+
+    private void Update()
+    {
+        _timerText.text = _timerData.Timer.ToString("F0");
+    }
+
     public void EndGame()
     {
         _gameEndMenu.SetActive(true);
+        if (Players.CurrentPlayer == -1)
+        {
+            _winnerText.text = "Game Ended in a draw!";
+        }
+        else
+        {
+            _winnerText.text = "The Winner is player " + (Players.CurrentPlayer+1).ToString();
+        }
     }
+
     public void RestartGame()
     {
         _gameEndMenu.SetActive(false);
@@ -54,6 +72,4 @@ public class UIManager : MonoBehaviour
             _playersImageUI[i].sprite = _playersData[i].PlayerImage;
         }
     }
-
-
 }

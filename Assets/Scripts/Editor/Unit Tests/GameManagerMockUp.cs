@@ -21,6 +21,7 @@ public class GameManagerMockUp : MonoBehaviour
         }
         return false;
     }
+
     public bool UndoLastMoves(MovesRecorder movesRecorder, GridMock[] gridMapInit, bool shouldUndo)
     {
         var lastMove = movesRecorder.movesRecorder;

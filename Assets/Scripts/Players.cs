@@ -10,7 +10,6 @@ public class Players : MonoBehaviour
     [SerializeField] private GameEvent _gameEvent;
     [SerializeField] private PlayerData[] _playersData;
     [SerializeField] private Sprite[] _imagesStock = new Sprite[2];
-
     public static int CurrentPlayer { get; set; }
     private int _playsCounter = 0;
 

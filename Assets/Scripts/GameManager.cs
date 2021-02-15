@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
     {
         InitScriptableObjects();
         InitGridsNum();
-        //CheckGameMode();
     }
     private void Start()
     {
@@ -75,6 +74,7 @@ public class GameManager : MonoBehaviour
         }
         if (_movesRecord.movesRecorder.Count == _gridMapInit.Length) // draw.
         {
+            Players.CurrentPlayer = -1;
             _gameEvent.FireEvent("EndGame");
             InitScriptableObjects();
             Debug.Log("game has ended with a draw!");

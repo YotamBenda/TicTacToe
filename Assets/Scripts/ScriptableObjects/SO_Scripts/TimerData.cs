@@ -6,4 +6,5 @@ using UnityEngine;
 public class TimerData : ScriptableObject
 {
     public float TimeForTurn;
+    public float Timer;
 }
