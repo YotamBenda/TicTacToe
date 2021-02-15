@@ -3,11 +3,14 @@ using UnityEditor;
 using System.Collections;
 using System.IO;
 
+/// <summary>
+/// Creating AssetBundle menu on GUI in order to create an AssetBundle and setting it to the X/O/BG sprites.
+/// </summary>
 public class CreateAssetBundles : EditorWindow
 {
-    Sprite X_Image;
-    Sprite O_Image;
-    Sprite Background;
+    GameObject X_Image;
+    GameObject O_Image;
+    GameObject Background;
     string _assetBundleName;
 
     [MenuItem("Window/CreateAssetBundle")]
@@ -18,13 +21,13 @@ public class CreateAssetBundles : EditorWindow
     void OnGUI()
     {
         GUILayout.Label("X Image", EditorStyles.boldLabel);
-        X_Image =  EditorGUILayout.ObjectField(X_Image, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
+        X_Image =  EditorGUILayout.ObjectField(X_Image,typeof(GameObject) ,false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as GameObject;
 
         GUILayout.Label("O Image", EditorStyles.boldLabel);
-        O_Image = EditorGUILayout.ObjectField(O_Image, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
+        O_Image = EditorGUILayout.ObjectField(O_Image, typeof(GameObject), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as GameObject;
 
         GUILayout.Label("Background", EditorStyles.boldLabel);
-        Background =  EditorGUILayout.ObjectField(Background, typeof(Sprite), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as Sprite;
+        Background =  EditorGUILayout.ObjectField(Background, typeof(GameObject), false, GUILayout.Height(EditorGUIUtility.singleLineHeight)) as GameObject;
 
         _assetBundleName = EditorGUILayout.TextField("AssetBundle Name", _assetBundleName);
 

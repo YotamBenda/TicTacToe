@@ -3055,6 +3055,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 881337c423f75c34eaf072605098007c, type: 2}
   - {fileID: 11400000, guid: 8a2e465103c08734287b8bf1f0ee8081, type: 2}
   _gameData: {fileID: 11400000, guid: e0db7b2ff3ebaa0449fffc270b2be4e0, type: 2}
+  _background: {fileID: 1210920734}
+  _assetNames:
+  - PrefabTest1
+  - PrefabTest2
+  - PrefabTest3
 --- !u!4 &1262335038
 Transform:
   m_ObjectHideFlags: 0

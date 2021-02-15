@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
+/// <summary>
+/// Builds all the asset bundle corrently in the project.
+/// </summary>
 public class BuildAssetBundle : MonoBehaviour
 {
     [MenuItem("Assets/Build AssetBundles")]

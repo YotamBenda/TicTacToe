@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 222413070
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b9621bfdb8247316dc334db79e2c244e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 07f27b9070c93f7e982bc35e465bae37
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/BundledObjects/PrefabTest3.prefab
+- Assets/Prefabs/BundledObjects/PrefabTest1.prefab
+- Assets/Prefabs/BundledObjects/PrefabTest2.prefab
+Dependencies: []

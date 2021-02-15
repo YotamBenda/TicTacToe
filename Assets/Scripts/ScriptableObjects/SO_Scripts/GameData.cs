@@ -10,5 +10,5 @@ using UnityEngine.UI;
 public class GameData : ScriptableObject
 {
     public string AssetBundleToLoad;
-    public Image Background;
+    public Sprite Background;
 }
