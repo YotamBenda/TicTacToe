@@ -11,10 +11,10 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameData gameData;
     [SerializeField] private InputField assetNameInput;
 
-    private void Start()
-    {
-        AssetBundle.UnloadAllAssetBundles(true);
-    }
+    //private void Start()
+    //{
+    //    AssetBundle.UnloadAllAssetBundles(true);
+    //}
     public void SetGameMode(int gameMode)
     {
         switch (gameMode)

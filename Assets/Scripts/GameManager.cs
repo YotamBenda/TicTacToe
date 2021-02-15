@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
         else if (_shouldHint)
         {
-            CheckForHint(true);
+            CheckForHint(true, usableSlots, _gridMapInit);
         }
         CheckIfGameEnded();
     }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator PlaceComputersTurn()
     {
         yield return new WaitForSeconds(_playersData[0].ComputersDelay);
-        usableSlots[CheckForHint(false)].SetGridImage();
+        usableSlots[CheckForHint(false, usableSlots, _gridMapInit)].SetGridImage();
         CheckIfGameEnded();
     }
 
@@ -83,15 +83,15 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public int CheckForHint(bool shouldShow)
+    public int CheckForHint(bool shouldShow, List<Grid> usableSlots, Grid[] gridMap)
     {
         usableSlots.Clear();
         int random;
-        for (int i = 0; i < _gridMapInit.Length; i++)
+        for (int i = 0; i < gridMap.Length; i++)
         {
-            if (_gridMapInit[i].PlayerID == -1)
+            if (gridMap[i].PlayerID == -1)
             {
-                usableSlots.Add(_gridMapInit[i]);
+                usableSlots.Add(gridMap[i]);
             }
         }
         random = Random.Range(0, usableSlots.Count - 1);

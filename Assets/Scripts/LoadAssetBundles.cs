@@ -15,13 +15,12 @@ public class LoadAssetBundles : MonoBehaviour
     }
     public void LoadAssetBundle()
     {
-        var assetName = "AssetToLoad";
-        var bundleName = _gameData.AssetBundleToLoad;
+        var assetName = "ExPrefab";
+        var bundleName = "111";
         var myLoadedAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, bundleName));
         if (myLoadedAssetBundle == null)
         {
             Debug.Log("Failed to load AssetBundle!");
-            return;
         }
         //_playerData[0].PlayerImage = myLoadedAssetBundle.LoadAsset<Sprite>("X_Image");
         //_playerData[1].PlayerImage = myLoadedAssetBundle.LoadAsset<Sprite>("HintImage");

@@ -34,7 +34,7 @@ public class CreateAssetBundles : EditorWindow
             {
                 Directory.CreateDirectory(Application.streamingAssetsPath);
             }
-            BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.None, EditorUserBuildSettings.activeBuildTarget);
+            BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, BuildAssetBundleOptions.ChunkBasedCompression, EditorUserBuildSettings.activeBuildTarget);
         }
         if(GUILayout.Button("Build AssetBundle"))
         {
