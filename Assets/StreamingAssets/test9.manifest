@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2311037018
+CRC: 811798711
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 73ca1769a261867ef3e59b1aa26e6df5
+    Hash: 0590a9b89027293525655497304ff2e1
   TypeTreeHash:
     serializedVersion: 2
     Hash: 25b0de44755a2b3dd1af8bc0a7e5588f
@@ -24,4 +24,4 @@ ClassTypes:
 Assets:
 - Assets/Prefabs/BundledObjects/AssetToLoad.prefab
 Dependencies:
-- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/shauli
+- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/test bundle 3

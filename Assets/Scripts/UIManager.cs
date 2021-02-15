@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text _timerText;
     [SerializeField] private Text _winnerText;
 
+    private void Start()
+    {
+        AssignXOImages();
+    }
     private void Update()
     {
         _timerText.text = _timerData.Timer.ToString("F0");

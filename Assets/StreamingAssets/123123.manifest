@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 1271696236
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3db5eb00c276c3366b4a6a5731c06642
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a0e6f106ebd7f7b68e95601220d83700
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ad65dca4722990743a29e6aec52692cc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e9d864ed7437fe94eb4674ef4727962b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d756680f070a25e458137d17be795208, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: db415bff0efebbb4c822f30019ae80f5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ad56cbde906ee01408e75d00a2877f23, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/GridTL.prefab
+Dependencies:
+- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/test bundle 3

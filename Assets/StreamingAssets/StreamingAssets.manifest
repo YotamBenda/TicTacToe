@@ -1,24 +1,27 @@
 ManifestFileVersion: 0
-CRC: 1744969819
+CRC: 2747110788
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: test bundle 3
       Dependencies: {}
     Info_1:
-      Name: test9
+      Name: defaultworking
       Dependencies:
-        Dependency_0: shauli
+        Dependency_0: test bundle 3
     Info_2:
-      Name: shauli
-      Dependencies: {}
+      Name: alonisking
+      Dependencies:
+        Dependency_0: test bundle 3
     Info_3:
-      Name: yotam
-      Dependencies: {}
+      Name: base
+      Dependencies:
+        Dependency_0: test bundle 3
     Info_4:
-      Name: 111
+      Name: stambundle
       Dependencies:
         Dependency_0: test bundle 3
     Info_5:
-      Name: newtest
-      Dependencies: {}
+      Name: basenew
+      Dependencies:
+        Dependency_0: test bundle 3

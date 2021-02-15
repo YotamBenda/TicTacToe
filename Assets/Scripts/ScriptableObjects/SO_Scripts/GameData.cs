@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Keeps the AssetBundle to load to the game, and also the Background from the loaded AssetBundle.
+/// Keeps the AssetBundle to load to the game.
 /// </summary>
 [CreateAssetMenu(menuName = "Variables/GameData", order = 4)]
 public class GameData : ScriptableObject
 {
     public string AssetBundleToLoad;
-    public Sprite Background;
+    public Sprite[] _imagesStock = new Sprite[2];
+
 }

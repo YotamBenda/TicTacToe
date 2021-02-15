@@ -17,14 +17,26 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 368dcb4d9886f804b9e2f3cd2e70d7f7
   m_SerializeEntries:
+  - m_GUID: 371d1598194254bb594650c32128dc1b
+    m_Address: Assets/Textures/Moon Active/EmptyBG.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 4f70ea826e45f0d49b7590feed181351
     m_Address: Assets/Textures/Moon Active/HintImage.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: aa6cc528d04eb324298a1440ccbd3938
-    m_Address: Assets/Prefabs/BundledObjects/PrefabTest.prefab
+  - m_GUID: 5e8278e012ff04d9a8bbd92350645568
+    m_Address: Assets/Textures/Moon Active/ExTarget.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: bd30ced15dd1c4a81a8798331e1abe4a
+    m_Address: Assets/Textures/Moon Active/CircleTarget.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     m_MainAsset: {fileID: 0}

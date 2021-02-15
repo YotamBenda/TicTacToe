@@ -1,0 +1,31 @@
+ManifestFileVersion: 0
+CRC: 1750602625
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b20d202ccadb8b556261fe2a614c00d7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7b5781b2e8f385d3e75aa53e459ee98f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/CircleTarget.prefab
+- Assets/Prefabs/ExTarget.prefab
+- Assets/Prefabs/BG.prefab
+Dependencies:
+- E:/Studies/Unity/TicTacToe/Assets/StreamingAssets/test bundle 3
