@@ -23,6 +23,7 @@ namespace Tests
             Solutions _solutions = new Solutions();
             Assert.IsTrue(_solutions.CheckIfGameWon(gridMap));
         }
+
         [Test]
         public void CheckIfGameWon_Lose()
         {
@@ -39,6 +40,7 @@ namespace Tests
             Solutions _solutions = new Solutions();
             Assert.IsTrue(_solutions.CheckIfGameWon(gridMap));
         }
+
         [Test]
         public void CheckIfGameWon_Draw()
         {
@@ -49,6 +51,7 @@ namespace Tests
             var _movesRecorder = new MovesRecorder();
             var _gameEvent = new GameEvent();
             var index = 0;
+
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)

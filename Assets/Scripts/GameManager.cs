@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
 
         }
-        else if (lastMove.Count == 1)
+        else if (lastMove.Count == 1 && _shouldUndo)
         {
             _gridMapInit[lastMove.Pop()].ResetGridSlot();
         }

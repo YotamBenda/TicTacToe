@@ -9,7 +9,7 @@ namespace Tests
     public class HintTest
     {
         [Test]
-        public void CheckForHint_Test()
+        public void CheckForHint_HaveHint()
         {
             var gameManager = new GameManager();
             var usableSlots = new List<Grid>();
@@ -21,8 +21,9 @@ namespace Tests
             }
             Assert.Positive(gameManager.CheckForHint(false, usableSlots, gridMap));
         }
+
         [Test]
-        public void CheckForHint_Test2()
+        public void CheckForHint_DontHaveHint()
         {
             var gameManager = new GameManager();
             var usableSlots = new List<Grid>();

@@ -21,4 +21,21 @@ public class GameManagerMockUp : MonoBehaviour
         }
         return false;
     }
+    public bool UndoLastMoves(MovesRecorder movesRecorder, GridMock[] gridMapInit, bool shouldUndo)
+    {
+        var lastMove = movesRecorder.movesRecorder;
+        var undoSucceded = false;
+        if (lastMove.Count > 0 && shouldUndo)
+        {
+            gridMapInit[lastMove.Pop()].ResetGridSlot();
+            gridMapInit[lastMove.Pop()].ResetGridSlot();
+            undoSucceded = true;
+        }
+        else if (lastMove.Count == 1 && shouldUndo)
+        {
+            gridMapInit[lastMove.Pop()].ResetGridSlot();
+            undoSucceded = true;
+        }
+        return undoSucceded;
+    }
 }
