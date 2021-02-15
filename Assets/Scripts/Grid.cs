@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Grid is set on each of the grids on the board, managing it's data and assigning X/O images according to CorrentPlayer.
+/// <param name="PlayerID"> when set to -1 = neutral.</param>
+/// </summary>
 public class Grid : MonoBehaviour
 {
     public int SlotNum { get; set; }
@@ -30,6 +34,9 @@ public class Grid : MonoBehaviour
         gameManager = gm;
     }
 
+    /// <summary>
+    /// SetGridImage() sets to image on the grid according to CorrentPlayer, pushes the slotNum assigned from GameManager into MovesRecorder.
+    /// </summary>
     public void SetGridImage()
     {
         PlayerID = Players.CurrentPlayer;

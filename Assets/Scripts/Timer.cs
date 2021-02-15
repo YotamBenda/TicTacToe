@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Timer updates the timer for each turn, firing events accordingly.
+/// </summary>
 public class Timer : MonoBehaviour
 {
     [Header("Scriptable Objects")]

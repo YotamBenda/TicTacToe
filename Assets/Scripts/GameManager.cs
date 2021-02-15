@@ -31,13 +31,13 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        InitScriptableObjects();
+        InitMovesRecorder();
         InitGridsNum();
     }
 
     private void Start()
     {
-        if (CheckIfPlayerVSComputer())
+        if (ComputerIsPlaying())
         {
             _shouldUndo = true;
             _shouldHint = true;
@@ -46,10 +46,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// NextTurn checks if the current player to place on the board is a computer. if so, it triggers the PlaceComputersTurn Enumartor.
-    /// The Enumerator is used in order to give the computer a delay time before placing his turn.
-    /// If it's not the computer's turn, it checks for hints and displays for the player.
-    /// <param _shouldHint> is false when the game mode is set to Player vs Player only. </param>
+    /// NextTurn plays the computer's turn if needed, activates hints, and checking if game ended.
     /// </summary>
     public void NextTurn()
     {
@@ -73,37 +70,32 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// CheckIfGameEnded 1st if statement checks if there were 5 moves or more && asks Solutions if game was won by one of the players
-    /// 2nd if statement checks if there have been the same amount of moves as the board's amount of Grids, in which case -
-    /// calls a Draw by setting CurrentPlayer to -1 (this is used by UIManager to set Draw message.
+    /// CheckIfGameEnded checks for amount of moves and a call to Solutions passing in the gridMap.
+    /// if draw, CurrentPlayer set to -1 for UIElement to call the Draw message
     /// </summary>
     /// <returns></returns>
     public bool CheckIfGameEnded()
     {
-        var currTurn = Players.CurrentPlayer;
         if (_movesRecord.movesRecorder.Count > 4 && _solutions.CheckIfGameWon(_gridMap)) // one of the players won.
         {
             _gameEvent.FireEvent("EndGame");
-            InitScriptableObjects();
+            InitMovesRecorder();
             return true;
         }
         if (_movesRecord.movesRecorder.Count == _gridMapInit.Length) // draw.
         {
             Players.CurrentPlayer = -1;
             _gameEvent.FireEvent("EndGame");
-            InitScriptableObjects();
+            InitMovesRecorder();
             return true;
         }
         return false;
     }
 
     /// <summary>
-    /// CheckForHint takes
+    /// CheckForHint is checking the gridMap to find empty grids, picks one in random, and offers it as a hint.
+    /// it also used in placing the computer's turn.
     /// </summary>
-    /// <param name="shouldShow"></param>
-    /// <param name="usableSlots"></param>
-    /// <param name="gridMap"></param>
-    /// <returns></returns>
     public int CheckForHint(bool shouldShow, List<Grid> usableSlots, Grid[] gridMap)
     {
         usableSlots.Clear();
@@ -122,13 +114,20 @@ public class GameManager : MonoBehaviour
         }
         return random;
     }
-    public bool CheckIfPlayerVSComputer()
+
+    /// <summary>
+    /// ComputerIsPlaying returns a bool in order to determine if undo and hint funtions should activate
+    /// </summary>
+    public bool ComputerIsPlaying()
     {
         var check = _playersData[1].isComputer;
 
         return check;
     }
 
+    /// <summary>
+    /// UndoLastMoves checks for the last 2 grids that've been placed, and reset in the gridMap
+    /// </summary>
     public void UndoLastMoves()
     {
         var lastMove = _movesRecord.movesRecorder;
@@ -144,12 +143,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void InitScriptableObjects()
+    /// <summary>
+    /// Resets the stack keeping last moves
+    /// </summary>
+    private void InitMovesRecorder()
     {
         _movesRecord.movesRecorder.Clear();
     }
 
-
+    /// <summary>
+    /// InitGridsNum() takes the grid placed through inspector and saves it in a 2d array for Solutions functions.
+    /// </summary>
     private void InitGridsNum()
     {
         var slotNum = 0;

@@ -5,10 +5,13 @@ using NUnit.Framework;
 
 namespace Tests
 {
+    /// <summary>
+    /// WinTest is checking 3 scenarios, where win/lose is in player1 context (PlayerID = 0).
+    /// </summary>
     public class WinTest
     {
         [Test]
-        public void CheckIfGameWon_Win()
+        public void CheckIfGameWon()
         {
             var gridMap = new Grid[3, 3];
 
@@ -25,7 +28,7 @@ namespace Tests
         }
 
         [Test]
-        public void CheckIfGameWon_Lose()
+        public void CheckIfGameLost()
         {
             var gridMap = new Grid[3, 3];
 
@@ -42,7 +45,7 @@ namespace Tests
         }
 
         [Test]
-        public void CheckIfGameWon_Draw()
+        public void CheckIfGameDraw()
         {
             var _gridMap = new Grid[3, 3];
             var gridMapInit = new Grid[9];

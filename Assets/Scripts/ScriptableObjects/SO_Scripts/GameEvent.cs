@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// GameEvent SO is used on any script that wants to fire/initiate an event.
+/// Using the FireEvent(eventName) function, eventNames taken from the GameEventSubscriber class (Enums names).
+/// </summary>
 [CreateAssetMenu(menuName = "Events/GameEvent", order = 1)]
 public class GameEvent : ScriptableObject
 {

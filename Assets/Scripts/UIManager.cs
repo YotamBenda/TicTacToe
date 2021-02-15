@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UIManager is managing all the Menus, UI buttons and texts.
+/// </summary>
 public class UIManager : MonoBehaviour
 {
     [Header("Scriptable Objects")]
@@ -29,6 +32,9 @@ public class UIManager : MonoBehaviour
         _timerText.text = _timerData.Timer.ToString("F0");
     }
 
+    /// <summary>
+    /// <param name = "CurrentPlayer"> is set to -1 by GameManager to call Draw.</param>
+    /// </summary>
     public void EndGame()
     {
         _gameEndMenu.SetActive(true);

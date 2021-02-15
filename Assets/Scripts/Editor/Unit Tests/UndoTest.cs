@@ -4,6 +4,12 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+/// <summary>
+/// UntoTest is checking 3 scenarios.
+/// ShouldUndo_CanUndo - computer is playing + there are possible hints on the gridMap.
+/// ShouldUndo_CanNotUndo - computer is playing + there arent any possible hints (board is full).
+/// ShouldNotUndo_CanUndo - computer isn't playing + there are opossible hints
+/// </summary>
 namespace Tests
 {
     public class UndoTest

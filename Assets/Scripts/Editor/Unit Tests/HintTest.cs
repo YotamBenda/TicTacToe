@@ -4,6 +4,11 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+/// <summary>
+/// HintTest is checking 2 scenarios
+/// CanGiveHint = all grids are set to neutral (-1)
+/// CanNotGiveHint = all grids are set to Player2 (1)
+/// </summary>
 namespace Tests
 {
     public class HintTest

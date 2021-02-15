@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// MainMenuUI manages all the MainMenu scene.
+/// </summary>
 public class MainMenuUI : MonoBehaviour
 {
     [Header("Game Attribues")]
@@ -11,10 +14,11 @@ public class MainMenuUI : MonoBehaviour
     [SerializeField] private GameData gameData;
     [SerializeField] private InputField assetNameInput;
 
-    //private void Start()
-    //{
-    //    AssetBundle.UnloadAllAssetBundles(true);
-    //}
+    /// <summary>
+    /// Setting the game mode according to input in MainMenu.
+    /// case 1: Player1 will be Player, Player2 is Computer.
+    /// </summary>
+    /// <param name="gameMode"></param>
     public void SetGameMode(int gameMode)
     {
         switch (gameMode)

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// GameManagerMockUp is used in Win/Lose/Draw Unit Tests.
+/// </summary>
 public class GameManagerMockUp : MonoBehaviour
 {
     public bool CheckIfGameEnded(MovesRecorder movesRecord, Solutions solutions, Grid[,] gridMap, Grid[] gridMapInit ,GameEvent gameEvent)

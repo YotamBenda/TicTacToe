@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Players class is in charge of which player's turn is it, and assigning X / O images randomly (X always 1st)
+/// When playing PlayerVSComputer game mode, _playersData[0] will be the player, [1] will be PC.
+/// </summary>
 public class Players : MonoBehaviour
 {
     [Header("Scriptable Objects")]
@@ -17,6 +20,7 @@ public class Players : MonoBehaviour
     {
         CurrentPlayer = 0;
     }
+
     private void Start()
     {
         for (int i = 0; i < _playersData.Length; i++)
@@ -24,6 +28,7 @@ public class Players : MonoBehaviour
              _playersData[i].PlayerImage = _imagesStock[i];
         }
     }
+
     public void SetNextPlayer()
     {
         _playsCounter++;
@@ -31,6 +36,9 @@ public class Players : MonoBehaviour
         _gameEvent.FireEvent("NextTurn");
     }
 
+    /// <summary>
+    /// Assigning the X / O images randomly, changing CurrentPlayer so X will always start.
+    /// </summary>
     public void AssignPlayersInRandom()
     {
         var check = (Random.Range(0, 1));
