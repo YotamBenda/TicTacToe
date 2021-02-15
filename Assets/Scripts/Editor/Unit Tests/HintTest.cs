@@ -21,6 +21,19 @@ namespace Tests
             }
             Assert.Positive(gameManager.CheckForHint(false, usableSlots, gridMap));
         }
+        [Test]
+        public void CheckForHint_Test2()
+        {
+            var gameManager = new GameManager();
+            var usableSlots = new List<Grid>();
+            var gridMap = new Grid[9];
+            for (int i = 0; i < 9; i++)
+            {
+                gridMap[i] = new Grid();
+                gridMap[i].PlayerID = 1;
+            }
+            Assert.Zero(gameManager.CheckForHint(false, usableSlots, gridMap));
+        }
 
 
     }
