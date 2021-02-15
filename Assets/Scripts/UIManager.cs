@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// UIManager is managing all the Menus, UI buttons and texts.
+/// Managing all the Menus, UI buttons and texts.
 /// </summary>
 public class UIManager : MonoBehaviour
 {

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
-/// MainMenuUI manages all the MainMenu scene.
+/// Manages all the MainMenu scene.
 /// </summary>
 public class MainMenuUI : MonoBehaviour
 {

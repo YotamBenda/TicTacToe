@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Grid is set on each of the grids on the board, managing it's data and assigning X/O images according to CorrentPlayer.
+/// Set on each of the grids on the board, managing it's data and assigning X/O images according to CorrentPlayer.
 /// <param name="PlayerID"> when set to -1 = neutral.</param>
 /// </summary>
 public class Grid : MonoBehaviour

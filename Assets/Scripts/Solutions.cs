@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Solutions managing the solution check for the game, telling the GameManager if anyone of the players has won the game.
+/// Managing the solution check for the game, telling the GameManager if anyone of the players has won the game.
 /// </summary>
 public class Solutions : MonoBehaviour
 {   

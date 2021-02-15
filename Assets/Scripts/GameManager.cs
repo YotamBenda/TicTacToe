@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// This class gets information from ScriptableObjects that contain data of the game state.
-/// It's incharge of holding the Grids list, used to check if the game has ended, checking for possible hints and undo moves.
+/// GameManager controls the game state contain it's data.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -46,7 +45,8 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// NextTurn plays the computer's turn if needed, activates hints, and checking if game ended.
+    /// Setting up the next turn.
+    /// plays the computer's turn if needed, activates hints, and checking if game ended.
     /// </summary>
     public void NextTurn()
     {
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// CheckIfGameEnded checks for amount of moves and a call to Solutions passing in the gridMap.
+    /// Checks for amount of moves and a call to Solutions passing in the gridMap.
     /// if draw, CurrentPlayer set to -1 for UIElement to call the Draw message
     /// </summary>
     /// <returns></returns>
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// CheckForHint is checking the gridMap to find empty grids, picks one in random, and offers it as a hint.
+    /// Checking the gridMap to find empty grids, picks one in random, and offers it as a hint.
     /// it also used in placing the computer's turn.
     /// </summary>
     public int CheckForHint(bool shouldShow, List<Grid> usableSlots, Grid[] gridMap)
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ComputerIsPlaying returns a bool in order to determine if undo and hint funtions should activate
+    /// Returns a bool in order to determine if undo and hint funtions should activate
     /// </summary>
     public bool ComputerIsPlaying()
     {
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// UndoLastMoves checks for the last 2 grids that've been placed, and reset in the gridMap
+    /// Checks for the last 2 grids that've been placed, and reset in the gridMap
     /// </summary>
     public void UndoLastMoves()
     {
@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// InitGridsNum() takes the grid placed through inspector and saves it in a 2d array for Solutions functions.
+    /// Takes the grid placed through inspector and saves it in a 2d array for Solutions functions.
     /// </summary>
     private void InitGridsNum()
     {

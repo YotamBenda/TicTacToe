@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// GameManagerMockUp is used in Win/Lose/Draw Unit Tests.
+/// Imitates GameManager's functions in order to use in Win/Lose/Draw and Undo Unit Tests.
 /// </summary>
 public class GameManagerMockUp : MonoBehaviour
 {

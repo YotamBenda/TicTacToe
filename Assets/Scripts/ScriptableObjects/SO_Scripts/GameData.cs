@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// GameData SO keeps the AssetBundle to load to the game, and also the Background from the loaded AssetBundle.
+/// Keeps the AssetBundle to load to the game, and also the Background from the loaded AssetBundle.
 /// </summary>
 [CreateAssetMenu(menuName = "Variables/GameData", order = 4)]
 public class GameData : ScriptableObject
